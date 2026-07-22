@@ -1,1 +1,30 @@
- 
+.text-color1{
+    color: #E65100;
+} 
+.bg-color1{
+    background: #E65100;
+}
+.text-color2{
+    color: #6A1B9A;
+}
+.bg-color2{
+    background: #6A1B9A;
+}
+.menu ul li a:hover{
+    color: #E65100;
+}
+.hero{
+    min-height:300px;
+}
+.herotitle{
+    margin-top:70px;
+    color: white;
+    font-size:35px;
+}
+.herodes{
+    color: white;
+    font-size:13px;
+}
+.herobtn:hover{
+    background: #E65100;
+}
