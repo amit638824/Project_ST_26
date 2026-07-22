@@ -19,12 +19,86 @@
 .herotitle{
     margin-top:70px;
     color: white;
-    font-size:35px;
+    font-size:45px;
 }
 .herodes{
     color: white;
-    font-size:13px;
+    font-size:18px;
 }
 .herobtn:hover{
     background: #E65100;
+}
+.herodot{
+    top:30px;
+    left:0px;
+    height: 150px;
+}
+.herosideimg{
+    top:100px;
+    right:0px;
+}
+.webheading{
+    text-align: center;
+    font-size: 28px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.category{
+    min-height: 300px;
+}
+.catcard{
+    background: #effaf8;
+    transition: 1s;
+}
+.catcard:hover{
+    background: #3fffdc;
+    transition:1s;
+}
+.catcard1{
+    background: #fbe1e5;
+    transition: 1s;
+}
+.catcard1:hover{
+    background: #f26c80;
+    transition: 1s;
+}
+.trending{
+    min-height: 300px;
+}
+.trusted{
+    min-height: 300px;
+}
+.testimonial{
+    min-height: 300px;
+}
+.article{
+    min-height: 300px;
+}
+.contact{
+    min-height: 300px;
+}
+.trending span{
+    width: 80px;
+    top:5px;
+    right:5px;
+}
+.trendingstar
+{
+    font-size:11px;
+}
+.trendingprice{
+    font-size: 14px;
+}
+.trendingcard:hover{
+    transform:scale(1.05);
+    transition: 2s;
+}
+.trendingcard{
+    transition: 2s;
+}
+.footer{
+    min-height: 300px;
+}
+.footercol{
+    padding-top:20px;
+    padding-left: 50px;
 }
