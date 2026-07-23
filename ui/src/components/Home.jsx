@@ -9,18 +9,22 @@ import ContactUs from './Contactus'
 import CertificateSection from './CertificateSection'
 import PartnerSection from './PartnerSection'
 import ArticleSection from './ArticleSection'
+import TalentSection from './TalentSection'
+import Pricing from './Pricing'
 const Home = () => {
   return (<>
     <HeroSection />
-    <CategorySection/>
-    <TrustedSection/>
-    <TrendingSection/>
-    <CounterSection/>
-    <TestimonialSection/>
-    <ContactUs/>
-    <CertificateSection/>
-    <PartnerSection/>
-    <ArticleSection/>
+    <CategorySection />
+    <TrustedSection />
+    <TrendingSection />
+    <CounterSection />
+    <TestimonialSection />
+    <ContactUs />
+    <TalentSection />
+    <Pricing />
+    <CertificateSection />
+    <PartnerSection />
+    <ArticleSection />
   </>)
 }
 

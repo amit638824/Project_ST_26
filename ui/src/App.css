@@ -54,11 +54,75 @@
     transition:1s;
 }
 .catcard1{
-    background: #fbe1e5;
+    background: #a9f9eb;
     transition: 1s;
 }
 .catcard1:hover{
-    background: #f26c80;
+    background: #099a82;
+    transition: 1s;
+}
+.catcard2{
+background: #f78899;
+transition: 1s;
+}
+.catcard2:hover{
+background: #ee4a62;
+transition: 1s;
+}
+.catcard3{
+    background: #4cfba9;
+    transition: 1s;
+}
+.catcard3:hover{
+    background: #048b4c;
+    transition: 1s;
+}
+.catcard4{
+    background: #fbce64;
+    transition: 1s;
+}
+.catcard4:hover{
+    background: #f6b00d;
+    transition: 1s;
+}
+.catcard5{
+    background: #b895fd;
+    transition: 1s;
+}
+.catcard5:hover{
+    background: #7b3ff2;
+    transition: 1s;
+}
+.catcard6{
+    background: #f882c1;
+    transition: 1s;
+}
+.catcard6:hover{
+    background: #f92596;
+    transition: 1s;
+}
+.catcard7{
+    background: #8d97f6;
+    transition: 1s;
+}
+.catcard7:hover{
+    background: #3f50ef;
+    transition: 1s;
+}
+.catcard8{
+    background: #eeba7e;
+    transition: 1s;
+}
+.catcard8:hover{
+    background: #f8941f;
+    transition: 1s;
+}
+.catcard9{
+    background: #78cbef;
+    transition: 1s;
+}
+.catcard9:hover{
+    background: #13a3e0;
     transition: 1s;
 }
 .trending{
@@ -101,4 +165,99 @@
 .footercol{
     padding-top:20px;
     padding-left: 50px;
+}
+.ficons {
+  display: flex;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.ficons a {
+  font-size: 20px;
+  text-decoration: none;
+  margin-right: 22px;
+  transition: all 0.3s ease;
+}
+
+.facebook {
+  color: #1877F2;
+}
+
+.linkedin {
+  color: #0A66C2;
+}
+
+.instagram {
+  color: #E4405F;
+}
+
+.twitter {
+  color: white;
+}
+
+.youtube {
+  color: #FF0000;
+}
+
+.ficons a:hover {
+  transform: translateY(-5px) scale(1.15);
+}
+.footercol ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.footercol ul li {
+  margin-bottom: 12px;
+}
+.footercol ul li a {
+  text-decoration: none;
+  color: #dcdcdc;
+  transition: 0.3s;
+}
+
+.footercol ul li a:hover {
+  color: #20c997;
+}
+.highlight{
+    color:#e65100 ;
+}
+.trustedimg{
+    top: -30px;
+    right: -10px;
+}
+.trusteddiv{
+    padding:50px 30px;
+    font-size: 15px;
+    text-align: justify;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.testhead{
+    font-size: 35px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+.testp{
+    color: grey;
+    font-size: 13px;
+    padding-top: 10px;
+    text-align: justify;
+}
+.teststar{
+    font-size: 10px;
+    margin: 0px;
+}
+.testpost{
+    color: grey;
+    font-size: 12px;
+}
+.contactor{
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    line-height: 60px;
+    color: #e65100;
+    background: white;
+    font-size: 20px;
+    
 }
