@@ -46,7 +46,7 @@ const userSchema=new mongoose.Schema({
     },
     createdAt: {
         type: Date,
-        default: Date.now // Sets current date/time by default
+        default: Date.now // Sets current date/time by default ..
     }
 
 })
