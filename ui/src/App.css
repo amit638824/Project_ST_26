@@ -45,84 +45,77 @@
 .category{
     min-height: 300px;
 }
-.catcard{
-    background: #effaf8;
-    transition: 1s;
-}
-.catcard:hover{
-    background: #3fffdc;
-    transition:1s;
-}
+
 .catcard1{
-    background: #a9f9eb;
+    background: #bdf5ec;
     transition: 1s;
 }
 .catcard1:hover{
-    background: #099a82;
+    background: #02fbd1;
     transition: 1s;
 }
 .catcard2{
-background: #f78899;
+background: #f3bbc3;
 transition: 1s;
 }
 .catcard2:hover{
-background: #ee4a62;
+background: #fd0127;
 transition: 1s;
 }
 .catcard3{
-    background: #4cfba9;
+    background: #bff5dc;
     transition: 1s;
 }
 .catcard3:hover{
-    background: #048b4c;
+    background: #03f785;
     transition: 1s;
 }
 .catcard4{
-    background: #fbce64;
+    background: #fbe7b7;
     transition: 1s;
 }
 .catcard4:hover{
-    background: #f6b00d;
+    background: #fdb202;
     transition: 1s;
 }
 .catcard5{
-    background: #b895fd;
+    background: #cdb9f4;
     transition: 1s;
 }
 .catcard5:hover{
-    background: #7b3ff2;
+    background: #5602fd;
     transition: 1s;
 }
 .catcard6{
-    background: #f882c1;
+    background: #f0b6d5;
     transition: 1s;
 }
 .catcard6:hover{
-    background: #f92596;
+    background: #fd0388;
     transition: 1s;
 }
 .catcard7{
-    background: #8d97f6;
+    background: #b7bdf6;
     transition: 1s;
 }
 .catcard7:hover{
-    background: #3f50ef;
+    background: #031cfb;
     transition: 1s;
 }
 .catcard8{
-    background: #eeba7e;
+    background: #f5d8b6;
     transition: 1s;
 }
 .catcard8:hover{
-    background: #f8941f;
+    background: #f78503;
     transition: 1s;
 }
 .catcard9{
-    background: #78cbef;
+    background: #bee5f6;
     transition: 1s;
 }
 .catcard9:hover{
-    background: #13a3e0;
+    background: #03aff8;
     transition: 1s;
 }
 .trending{
@@ -132,6 +125,9 @@ transition: 1s;
     min-height: 300px;
 }
 .testimonial{
+    min-height: 300px;
+}
+.talent{
     min-height: 300px;
 }
 .article{
@@ -260,4 +256,28 @@ transition: 1s;
     background: white;
     font-size: 20px;
     
+}
+.talent-card {
+    text-align: center;
+}
+
+.talent-img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: 0.4s;
+}
+
+.talent-card:hover .talent-img {
+    transform: scale(1.05);
+}
+
+.talent-card h4 {
+    font-size: 20px;
+}
+
+.talent-card h6 {
+    font-size: 12px;
+    color: #777;
 }

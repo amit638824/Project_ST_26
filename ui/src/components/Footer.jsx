@@ -13,14 +13,14 @@ const Footer = () => {
   return (<>
     <div className='row footer bg-dark g-4'>
       <div className='col-sm-3 text-light footercol'>
-        <h6 >Contact <span className='highlight'>Us</span></h6>
+        <h4 >Contact <span className='highlight'>Us</span></h4>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde veniam quis incidunt animi laboriosam eius, id dolore quae deserunt rerum ratione. Maiores labore culpa doloribus nihil libero earum at error.</p>
         <p><b>Add: </b> Plot No-01, Behind Thompson College, Bahraich Road, Gonda, Uttar Pradesh 271001</p>
         <p><b>Call: </b>+91-7408926512</p>
         <p><b>Email: </b>ad74mi@gmail.com</p>
       </div>
       <div className='col-sm-3 text-light footercol '>
-        <h6>Zentora <span className='highlight'>Platform</span></h6>
+        <h4>Zentora <span className='highlight'>Platform</span></h4>
 
         <ul>
           <li><Link to="/about">About</Link></li>
@@ -32,7 +32,7 @@ const Footer = () => {
         </ul>
       </div>
       <div className='col-sm-3 text-light footercol'>
-        <h6>Links</h6>
+        <h4>Links</h4>
 
         <ul>
           <li><Link to="/contact">Contact Us</Link></li>
@@ -44,7 +44,7 @@ const Footer = () => {
         </ul>
       </div>
       <div className='col-sm-3 text-light footercol'>
-        <h6>Our <span className='highlight'>Contacts</span></h6>
+        <h4>Our <span className='highlight'>Contacts</span></h4>
         <p>
           Enter your email address to register
           to our newsletter subscription
