@@ -32,3 +32,36 @@ export const userRegister = async (req, res) => {
         })
     }
 }
+
+export const userLogin = async (req, res) => {
+    try {
+        const { email, password } = req.body;
+        const isMatch = await userModel.findOne({ email, password });
+        if (isMatch) {
+            res.json({
+                code: 200,
+                success: true,
+                message: "Login successful",
+                result: isMatch,
+                error: false
+            })
+        } else {
+            res.json({
+                code: 404,
+                success: false,
+                message: "Invalid Credentials login failed.",
+                result: '',
+                error: true
+            })
+        }
+    } catch (err) {
+        res.json({
+            code: 500,
+            success: false,
+            message: "Internal Server Error",
+            result: "",
+            error: true
+        })
+    }
+}
+
