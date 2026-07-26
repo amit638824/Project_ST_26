@@ -5,16 +5,13 @@ import { FaCheck, FaPhoneAlt, FaEnvelope, FaArrowRight } from 'react-icons/fa'
 const Navbar = () => {
   const [data, setData] = useState(null);
   const location = useLocation();
-  const navigate=useNavigate()
+
   useEffect(() => {
     const info = JSON.parse(localStorage.getItem('info'));
     setData(info)
   }, [location.pathname])
 
-  const logout=()=>{
-    localStorage.removeItem('info');
-    navigate('/')
-  }
+
   if (data?.type == 'admin') {
     return <AdminMenu />
   } else if (data?.type == 'client') {
@@ -137,6 +134,12 @@ const CommonMenu = () => {
 }
 
 const AdminMenu = () => {
+  const navigate = useNavigate()
+
+  const logout = () => {
+    localStorage.removeItem('info');
+    navigate('/')
+  }
   return (<>
     <header className="zentora-nav">
       {/* Top bar */}
@@ -236,7 +239,7 @@ const AdminMenu = () => {
                     <NavLink className="nav-link" to="/admin-plans">Plans</NavLink>
                   </li>
                   <li className="nav-item">
-                    <NavLink className="nav-link" onClick={logout}>Logout</NavLink>
+                    <button className="nav-link" onClick={logout}>Logout</button>
                   </li>
                 </ul>
               </div>
@@ -249,6 +252,12 @@ const AdminMenu = () => {
 }
 
 const ClientMenu = () => {
+  const navigate = useNavigate()
+
+  const logout = () => {
+    localStorage.removeItem('info');
+    navigate('/')
+  }
   return (<>
     <header className="zentora-nav">
       {/* Top bar */}
@@ -342,7 +351,7 @@ const ClientMenu = () => {
                     <NavLink className="nav-link" to="/client-profile">Profile</NavLink>
                   </li>
                   <li className="nav-item">
-                    <NavLink className="nav-link" onClick={logout}>Logout</NavLink>
+                    <button className="nav-link" onClick={logout}>Logout</button>
                   </li>
 
                 </ul>
@@ -356,6 +365,11 @@ const ClientMenu = () => {
 }
 
 const UserMenu = () => {
+  const navigate = useNavigate()
+  const logout = () => {
+    localStorage.removeItem('info');
+    navigate('/')
+  }
   return (<>
     <header className="zentora-nav">
       {/* Top bar */}
@@ -449,7 +463,7 @@ const UserMenu = () => {
                     <NavLink className="nav-link" to="/user-plans">Plans</NavLink>
                   </li>
                   <li className="nav-item">
-                    <NavLink className="nav-link" onClick={logout}>Logout</NavLink>
+                    <button className="nav-link" onClick={logout}>Logout</button>
                   </li>
 
                 </ul>
