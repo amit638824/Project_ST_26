@@ -30,7 +30,6 @@ import UserBids from './components/user/UserBids';
 import UserProfile from './components/user/UserProfile';
 import UserPlans from './components/user/UserPlans';
 
-
 const App = () => {
   return (
     <>
@@ -65,11 +64,11 @@ const App = () => {
           <Route path='/user-bids' element={<UserBids/>} />
           <Route path='/user-profile' element={<UserProfile/>} />
           <Route path='/user-plans' element={<UserPlans/>} />
-
         </Routes>
         <Footer />
       </BrowserRouter>
     </>
-  )
-}
-export default App
+  );
+};
+
+export default App;

@@ -1478,9 +1478,10 @@ img {
    16. REGISTER PAGE  →  Register.jsx
    ========================================================= */
 .register-page {
-  min-height: 100vh;
+  min-height: calc(100vh - 180px);
   background: #f5f7fa;
-  padding: 20px;
+  padding: 24px 16px;
+  margin: 0;
 }
 
 .register-card {
@@ -1488,7 +1489,8 @@ img {
   max-width: 640px;
   background: #fff;
   border-radius: 18px;
-  padding: 45px;
+  padding: 32px 36px;
+  margin: 0;
 }
 
 .small-title {
@@ -1544,12 +1546,13 @@ img {
    17. LOGIN PAGE  →  Login.jsx
    ========================================================= */
 .login-page {
-  min-height: 100vh;
+  min-height: calc(100vh - 180px);
   background: #f4f7fa;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 24px 16px;
+  margin: 0;
 }
 
 .login-card {
@@ -1557,7 +1560,8 @@ img {
   max-width: 640px;
   background: #fff;
   border-radius: 18px;
-  padding: 45px;
+  padding: 32px 36px;
+  margin: 0;
 }
 
 .welcome-text {
