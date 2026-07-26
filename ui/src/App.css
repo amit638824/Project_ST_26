@@ -292,163 +292,203 @@ img {
 
 /* =========================================================
    03. HERO SECTION  →  HeroSection.jsx
-   Main banner: title, CTA, girl image, Active Talent card
+   Template match: girl image + correct shapes, no text overlap
    ========================================================= */
 .hero-section {
-  background: var(--bg-soft);
-  padding: 40px 0 70px;
+  position: relative;
+  background: #f5f9fa;
+  padding: 50px 0 80px;
   overflow: hidden;
+}
+
+.hero-side-shape {
+  position: absolute;
+  left: 0;
+  top: 120px;
+  width: 40px;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
+  max-width: 540px;
 }
 
-.hero-title {
-  font-size: clamp(2rem, 3.5vw, 3rem);
-  font-weight: 800;
-  line-height: 1.25;
-  color: var(--text);
-  margin-bottom: 18px;
-}
-
-.hero-title span {
-  color: var(--orange);
-}
-
-.hero-desc {
-  color: var(--muted);
-  font-size: 16px;
-  line-height: 1.75;
-  max-width: 480px;
-  margin-bottom: 28px;
-}
-
+.hero-title,
+.hero-desc,
 .hero-cta {
-  background: var(--teal);
-  color: #fff !important;
-  border-radius: 8px;
-  padding: 14px 28px;
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-}
-
-.hero-cta:hover {
-  background: var(--teal-dark);
-  color: #fff;
-}
-
-.hero-visual {
-  min-height: 420px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-}
-
-.hero-girl {
-  max-height: 480px;
   position: relative;
   z-index: 2;
 }
 
+.hero-title {
+  font-size: clamp(2.1rem, 3.8vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: #1c1d20;
+  margin: 0 0 20px;
+}
+
+.hero-title span {
+  color: #ee4a03;
+}
+
+.hero-desc {
+  color: #52565b;
+  font-size: 16px;
+  line-height: 1.75;
+  max-width: 470px;
+  margin: 0 0 30px;
+}
+
+.hero-cta {
+  background: #1ab69d;
+  color: #fff !important;
+  border-radius: 5px;
+  padding: 14px 26px;
+  font-weight: 600;
+  font-size: 15px;
+  display: inline-flex;
+  align-items: center;
+  border: none;
+}
+
+.hero-cta:hover {
+  background: #159a85;
+  color: #fff !important;
+}
+
+/* Left dots — behind title, low opacity, text on top */
 .hero-dots-left {
   position: absolute;
-  top: 20px;
-  left: -10px;
-  width: 120px;
-  opacity: 0.55;
+  top: -15px;
+  left: -40px;
+  width: 130px;
+  opacity: 0.45;
   z-index: 0;
+  pointer-events: none;
+}
+
+/* RIGHT visual */
+.hero-visual {
+  position: relative;
+  width: 100%;
+  max-width: 540px;
+  margin-left: auto;
+  min-height: 520px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.hero-girl {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Template shapes around girl */
+.hero-shape-16 {
+  position: absolute;
+  top: 40px;
+  left: 30px;
+  width: 70px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-shape-15 {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  width: 55px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-shape-02 {
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  width: 100px;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.9;
 }
 
 .hero-dots-right {
   position: absolute;
-  top: 40px;
-  right: 10px;
-  width: 110px;
-  opacity: 0.45;
-  z-index: 1;
-}
-
-.hero-shape-wave {
-  position: absolute;
-  top: 30px;
-  right: 120px;
-  width: 50px;
-  z-index: 1;
+  bottom: 70px;
+  right: -10px;
+  width: 95px;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.5;
 }
 
 .hero-shape-yellow {
   position: absolute;
-  left: 20px;
-  top: 45%;
+  left: 40px;
+  top: 55%;
   width: 28px;
   z-index: 1;
-}
-
-.hero-shape-purple {
-  position: absolute;
-  right: 30px;
-  top: 55%;
-  width: 36px;
-  z-index: 1;
+  pointer-events: none;
 }
 
 .hero-talent-card {
   position: absolute;
-  left: 10px;
-  bottom: 30px;
+  left: 0;
+  bottom: 40px;
   background: #fff;
-  border-radius: 14px;
-  padding: 14px 18px;
-  box-shadow: var(--shadow);
+  border-radius: 10px;
+  padding: 16px 18px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
   z-index: 3;
-  min-width: 220px;
+  min-width: 210px;
 }
 
 .hero-talent-card h6 {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 700;
-  margin-bottom: 10px;
+  color: #1c1d20;
+  margin: 0 0 10px;
 }
 
-.avatar-stack {
+.hero-talent-row {
   display: flex;
   align-items: center;
+  gap: 12px;
 }
 
-.avatar-stack img {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #fff;
-  margin-left: -8px;
+.hero-talent-thumbs {
+  width: 110px;
+  height: auto;
+  display: block;
 }
 
-.avatar-stack img:first-child {
-  margin-left: 0;
+.hero-talent-text {
+  margin: 0;
+  line-height: 1.25;
 }
 
-.avatar-plus {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: #ff8a65;
-  color: #fff;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 11px;
-  margin-left: -8px;
-  border: 2px solid #fff;
+.hero-talent-text strong {
+  display: block;
+  color: #ee4a03;
+  font-size: 18px;
+  font-weight: 800;
 }
 
-.talent-stat {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--text);
+.hero-talent-text span {
+  display: block;
+  color: #52565b;
+  font-size: 13px;
+  font-weight: 500;
 }
 
 /* =========================================================
@@ -1888,14 +1928,42 @@ img {
    21. RESPONSIVE — TABLET (max-width: 991px)
    ========================================================= */
 @media (max-width: 991px) {
+  .hero-section {
+    padding: 30px 0 50px;
+  }
+
+  .hero-side-shape {
+    display: none;
+  }
+
+  .hero-dots-left {
+    left: -10px;
+    top: -10px;
+    width: 80px;
+    opacity: 0.3;
+  }
+
   .hero-visual {
-    margin-top: 40px;
-    min-height: auto;
+    margin-top: 30px;
+    min-height: 420px;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-girl {
+    max-width: 320px;
+  }
+
+  .hero-shape-16,
+  .hero-shape-15,
+  .hero-shape-02 {
+    opacity: 0.7;
   }
 
   .hero-talent-card {
-    left: 0;
-    bottom: 10px;
+    left: 10px;
+    bottom: 20px;
   }
 
   .about-video-card,
