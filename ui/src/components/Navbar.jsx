@@ -45,10 +45,11 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Main menu */}
+      {/* Main menu: logo left, menu center (pehle jahan tha) */}
       <nav className="navbar navbar-expand-lg main-navbar">
-        <div className="container">
-          <div className="row w-100 align-items-center justify-content-between justify-content-lg-center g-0">
+        <div className="container position-relative">
+          <div className="row w-100 align-items-center g-0">
+            {/* Logo — left */}
             <div className="col-auto">
               <Link className="navbar-brand d-inline-flex align-items-center gap-2 m-0" to="/">
                 <span className="brand-icon">
@@ -60,7 +61,8 @@ const Navbar = () => {
               </Link>
             </div>
 
-            <div className="col-auto d-lg-none">
+            {/* Toggle (mobile) */}
+            <div className="col-auto ms-auto d-lg-none">
               <button
                 className="navbar-toggler"
                 type="button"
@@ -74,7 +76,8 @@ const Navbar = () => {
               </button>
             </div>
 
-            <div className="col-12 col-lg-auto">
+            {/* Menu — same center position as before */}
+            <div className="col-12 col-lg-auto nav-menu-wrap">
               <div className="collapse navbar-collapse" id="zentoraNav">
                 <ul className="navbar-nav flex-lg-row align-items-lg-center">
                   <li className="nav-item">

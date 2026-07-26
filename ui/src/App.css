@@ -272,6 +272,14 @@ img {
     flex-direction: row;
     align-items: center;
   }
+
+  /* Menu center me — pehle jahan tha */
+  .zentora-nav .nav-menu-wrap {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 @media (max-width: 991px) {
