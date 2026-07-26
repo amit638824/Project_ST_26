@@ -4,7 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const schema = yup.object().shape({
   type: yup.string().oneOf(["client", "user", "admin"]).required("Please select login type"),
@@ -14,6 +14,7 @@ const schema = yup.object().shape({
 });
 
 const Login = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -23,7 +24,24 @@ const Login = () => {
   });
 
   const handleLogin = async (data) => {
-    console.log(data);
+    const res = await axios.post('http://localhost:9000/login', data);
+    if (res?.data?.success == true) { 
+      localStorage.setItem("info", JSON.stringify(res?.data?.result))
+      if (res?.data?.result?.type == 'admin') {
+        navigate('/admin-dashboard')
+      } else if (res?.data?.result?.type == 'client') {
+        navigate('/client-dashboard')
+      } else if (res?.data?.result?.type == 'user') {
+        navigate('/user-dashboard')
+      }
+    } else {
+      Swal.fire({
+        title: "Login",
+        text: res?.data?.message,
+        icon: "error"
+      })
+    }
+
   };
 
   return (
@@ -43,7 +61,7 @@ const Login = () => {
         <form onSubmit={handleSubmit(handleLogin)}>
           <div className="mb-3">
             <label className="form-label fw-semibold">Login As</label>
-            <select {...register("type")} className="form-select"> 
+            <select {...register("type")} className="form-select">
               <option value="client">Client</option>
               <option value="user">Freelancer</option>
               <option value="admin">Admin</option>
