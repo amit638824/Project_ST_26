@@ -150,25 +150,94 @@ img {
 .brand-text {
   font-weight: 700;
   font-size: 1.35rem;
-  color: var(--text);
+  color: #1c1d20;
+}
+
+.brand-accent {
+  color: var(--orange);
 }
 
 /* =========================================================
    02. NAVBAR  →  Navbar.jsx
-   Logo left (col-lg-3) + menu right (col-lg-9)
+   Top bar + main menu (taller height)
    ========================================================= */
 .zentora-nav {
-  background: var(--bg-soft);
-  border-bottom: 1px solid #eef0f4;
+  background: #fff;
+  border-bottom: 1px solid #e8eaee;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
 }
 
-.zentora-nav .navbar {
-  padding-top: 0;
-  padding-bottom: 0;
+/* --- Top bar --- */
+.header-top-bar {
+  background: #1c1d20;
+  padding: 8px 0;
+  font-size: 13px;
+}
+
+.top-bar-link {
+  color: #fff;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  transition: opacity 0.2s ease;
+}
+
+.top-bar-link:hover {
+  color: #fff;
+  opacity: 0.85;
+}
+
+.top-bar-icon {
+  color: #1ab69d;
+  font-size: 13px;
+}
+
+.top-bar-sep {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.top-bar-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #1ab69d;
+  color: #fff !important;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+.top-bar-btn:hover {
+  background: #159a85;
+  color: #fff !important;
+}
+
+/* --- Main menu --- */
+.zentora-nav .main-navbar {
+  min-height: 78px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  background: #fff;
 }
 
 .zentora-nav .navbar-brand {
   text-decoration: none;
+  margin-right: 12px;
+}
+
+.zentora-nav .brand-icon {
+  width: 38px;
+  height: 38px;
+  font-size: 15px;
+}
+
+.zentora-nav .brand-text {
+  font-size: 1.45rem;
 }
 
 .zentora-nav .navbar-toggler {
@@ -176,11 +245,15 @@ img {
   padding: 6px 10px;
 }
 
+.zentora-nav .navbar-nav {
+  gap: 4px;
+}
+
 .zentora-nav .nav-link {
   color: #3d4450 !important;
   font-weight: 500;
-  font-size: 15px;
-  padding: 10px 14px !important;
+  font-size: 16px;
+  padding: 12px 16px !important;
   white-space: nowrap;
   transition: color 0.2s ease;
 }
@@ -190,7 +263,24 @@ img {
   color: var(--orange) !important;
 }
 
+@media (min-width: 992px) {
+  .zentora-nav .navbar-collapse {
+    display: flex !important;
+  }
+
+  .zentora-nav .navbar-nav {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
 @media (max-width: 991px) {
+  .zentora-nav .main-navbar {
+    min-height: 64px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
   .zentora-nav .navbar-collapse {
     background: #fff;
     border-radius: 10px;
@@ -1478,9 +1568,9 @@ img {
    16. REGISTER PAGE  →  Register.jsx
    ========================================================= */
 .register-page {
-  min-height: calc(100vh - 180px);
-  background: #f5f7fa;
-  padding: 24px 16px;
+  min-height: calc(100vh - 200px);
+  background: #eef2f6;
+  padding: 28px 16px 40px;
   margin: 0;
 }
 
@@ -1488,9 +1578,11 @@ img {
   width: 100%;
   max-width: 640px;
   background: #fff;
-  border-radius: 18px;
+  border-radius: 16px;
   padding: 32px 36px;
   margin: 0;
+  border: 1px solid #e5e9ef;
+  box-shadow: 0 10px 30px rgba(28, 29, 32, 0.06);
 }
 
 .small-title {
@@ -1546,12 +1638,12 @@ img {
    17. LOGIN PAGE  →  Login.jsx
    ========================================================= */
 .login-page {
-  min-height: calc(100vh - 180px);
-  background: #f4f7fa;
+  min-height: calc(100vh - 200px);
+  background: #eef2f6;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 24px 16px;
+  padding: 28px 16px 40px;
   margin: 0;
 }
 
@@ -1559,9 +1651,11 @@ img {
   width: 100%;
   max-width: 640px;
   background: #fff;
-  border-radius: 18px;
+  border-radius: 16px;
   padding: 32px 36px;
   margin: 0;
+  border: 1px solid #e5e9ef;
+  box-shadow: 0 10px 30px rgba(28, 29, 32, 0.06);
 }
 
 .welcome-text {

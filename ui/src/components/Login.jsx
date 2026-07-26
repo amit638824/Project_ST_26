@@ -28,7 +28,7 @@ const Login = () => {
 
   return (
     <div className="login-page d-flex justify-content-center align-items-center">
-      <div className="login-card shadow">
+      <div className="login-card">
         <p className="welcome-text mb-2">WELCOME BACK</p>
 
         <h1 className="fw-bold mb-2">Sign In</h1>
