@@ -1,35 +1,66 @@
 import React from 'react'
-import { IoCheckmarkDone } from "react-icons/io5";
+import { FaCheck, FaPlay, FaAward } from 'react-icons/fa'
 
 const TrustedSection = () => {
-  return (<>
-  <div className='row py-3 trusted'>
-    <div className='col-sm-10 mx-auto'>
-      <div className='webheading'>Trusted By <b className='text-color1'>Teams</b></div>
-      <hr className='w-25 mx-auto text-color1' />
-      <div className='row'>
-        <div className='col-sm-6 position-relative pt-5'>
-          <img src='/images/about-01.webp' className='img-fluid rounded-3'/>
-          <div className='shadow-lg p-1 position-absolute w-50 trustedimg'>
-            <img src='/images/Image-2.png' className='img-fluid rounded-3'/>
+  return (
+    <section className="about-section section-pad">
+      <div className="container">
+        <div className="row align-items-center g-5">
+          <div className="col-lg-6">
+            <div className="about-visual position-relative">
+              <img src="/images/shape-13.png" alt="" className="about-dots-tl" />
+              <img src="/images/shape-02.png" alt="" className="about-blob" />
+              <img src="/images/shape-13.png" alt="" className="about-dots-br" />
+
+              <img
+                src="/images/about-01.webp"
+                alt="Work without borders"
+                className="about-main-img img-fluid"
+              />
+
+              <div className="about-video-card">
+                <div className="video-thumb position-relative">
+                  <img src="/images/Image-2.png" alt="Workspace" />
+                  <span className="play-btn"><FaPlay /></span>
+                </div>
+                <div className="video-lines">
+                  <span />
+                  <span />
+                </div>
+              </div>
+
+              <div className="about-stats-card">
+                <span className="stats-badge"><FaAward /></span>
+                <div>
+                  <strong>150+</strong>
+                  <small>Top Countries</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="col-lg-6 about-content position-relative">
+            <img src="/images/shape-04.png" alt="" className="about-circle-right" />
+            <p className="eyebrow">THE FUTURE OF FREELANCING</p>
+            <h2 className="section-title text-start">
+              Work Without Borders With{' '}
+              <span className="accent-pink underline-word">Zentora</span>
+            </h2>
+            <p className="about-text">
+              Zentora is a secure, escrow-backed platform where businesses and
+              freelancers connect across the globe. Hire. Work. Grow. — get premium
+              development, design, content, and marketing delivered on time, within budget.
+            </p>
+            <ul className="about-features list-unstyled">
+              <li><FaCheck /> Expert Freelancers</li>
+              <li><FaCheck /> Safe Escrow Payments</li>
+              <li><FaCheck /> 24/7 Priority Support</li>
+            </ul>
           </div>
         </div>
-        <div className='col-sm-6 trusteddiv'>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi culpa quasi officiis quod suscipit possimus, consectetur dolores voluptas mollitia et nostrum repudiandae harum maiores minus, vel soluta, consequuntur reiciendis similique!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab tenetur similique adipisci expedita neque eum! In est beatae doloremque nam sequi iusto, repellendus, tempora ad impedit quidem similique, laborum facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit tenetur excepturi esse blanditiis? Eveniet deleniti doloribus ut exercitationem iusto sapiente hic corrupti ratione. Fuga quis optio, earum nihil quos inventore.
-          </p>
-          <p>
-            <IoCheckmarkDone className='text-color1'/>  Expert Freelancers<br/>
-            <IoCheckmarkDone className='text-color1'/> Safe Escrow Payments<br/>
-            <IoCheckmarkDone className='text-color1'/> 24/7 Priority Support<br/>
-          </p>
       </div>
-    </div>
-  </div>
-  </div>
-  </>)
+    </section>
+  )
 }
 
 export default TrustedSection

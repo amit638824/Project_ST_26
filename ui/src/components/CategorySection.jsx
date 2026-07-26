@@ -1,141 +1,115 @@
 import React from 'react'
-import { AiFillNotification } from "react-icons/ai";
-import { MdDesignServices } from "react-icons/md";
-import { TbWritingSign } from "react-icons/tb";
-import { MdOutlineAdminPanelSettings } from "react-icons/md";
-import { Si365Datascience } from "react-icons/si";
-import { SiGooglemarketingplatform } from "react-icons/si";
-import { GrAssistListening } from "react-icons/gr";
-import { FaTachographDigital } from "react-icons/fa6";
-import { FaPhotoVideo } from "react-icons/fa";
+import {
+  HiOutlineDesktopComputer,
+  HiOutlineColorSwatch,
+  HiOutlineCode,
+  HiOutlineBriefcase,
+  HiOutlineDatabase,
+  HiOutlineSpeakerphone,
+  HiOutlineHand,
+  HiOutlineDeviceMobile,
+  HiOutlinePhotograph,
+} from 'react-icons/hi'
 
 const CategorySection = () => {
-  return (<>
-    <div className='row py-3 category'>
-      <div className='col-sm-10 mx-auto'>
-        <div className='webheading'>Browse Talent <b className='text-color1'>By Category</b></div>
-        <hr className='w-25 mx-auto text-color1' />
-        <div className='row py-2'>
-          <div className='col-sm-4'>
-            <div className='card border border-0 shadow-lg mx-auto catcard1'>
-              <div className='row p-3'>
-                <div className='col-2'>
-                  <AiFillNotification className='fs-3' />
-                </div>
-                <div className='col-10'>
-                  Web & Software Dev
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className='col-sm-4'>
-            <div className='card border border-0 shadow-lg mx-auto catcard2'>
-              <div className='row p-3'>
-                <div className='col-2'>
-                  <MdDesignServices  className='fs-3' />
-                </div>
-                <div className='col-10'>
-                  Design & Creative
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className='col-sm-4'>
-            <div className='card border border-0 shadow-lg mx-auto catcard3'>
-              <div className='row p-3'>
-                <div className='col-2'>
-                  <TbWritingSign  className='fs-3' />
-                </div>
-                <div className='col-10'>
-                  Writing & Translation
-                </div>
-              </div>
-            </div>
-          </div>
+  return (
+    <section className="category-section section-pad">
+      <div className="container">
+        <div className="section-header text-center">
+          <h2 className="section-title">
+            Browse Talent by <span className="underline-word">Category</span> on Zentora
+          </h2>
+          <p className="section-sub">
+            Where talent meets opportunity — find certified experts and agency-level
+            professionals for any contract, stack, or timeline.
+          </p>
         </div>
-        <div className='row py-2'>
-          <div className='col-sm-4'>
-            <div className='card border border-0 shadow-lg mx-auto catcard4'>
-              <div className='row p-3'>
-                <div className='col-2'>
-                  <MdOutlineAdminPanelSettings  className='fs-3' />
-                </div>
-                <div className='col-10'>
-                  Admin Support
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className='col-sm-4'>
-            <div className='card border border-0 shadow-lg mx-auto catcard5'>
-              <div className='row p-3'>
-                <div className='col-2'>
-                  <Si365Datascience  className='fs-3' />
-                </div>
-                <div className='col-10'>
 
-                  Data Science & Analytics
-                </div>
+        <div className="row g-3 g-lg-4">
+          <div className="col-lg-4 col-md-6">
+            <div className="category-card cat-teal">
+              <div className="cat-icon">
+                <HiOutlineDesktopComputer />
               </div>
+              <h5>Web & Software Dev</h5>
             </div>
           </div>
-          <div className='col-sm-4'>
-            <div className='card border border-0 shadow-lg mx-auto catcard6'>
-              <div className='row p-3'>
-                <div className='col-2'>
-                  <SiGooglemarketingplatform  className='fs-3' />
-                </div>
-                <div className='col-10'>
 
-                  Marketing
-                </div>
+          <div className="col-lg-4 col-md-6">
+            <div className="category-card cat-pink">
+              <div className="cat-icon">
+                <HiOutlineColorSwatch />
               </div>
+              <h5>Design & Creative</h5>
             </div>
           </div>
-        </div>
-        <div className='row py-2'>
-          <div className='col-sm-4'>
-            <div className='card border border-0 shadow-lg mx-auto catcard7'>
-              <div className='row p-3'>
-                <div className='col-2'>
-                  <GrAssistListening   className='fs-3' />
-                </div>
-                <div className='col-10'>
-                  Accounting & Consulting
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className='col-sm-4'>
-            <div className='card border border-0 shadow-lg mx-auto catcard8'>
-              <div className='row p-3'>
-                <div className='col-2'>
-                  <FaTachographDigital className='fs-3' />
-                </div>
-                <div className='col-10'>
 
-                  IT & Networking
-                </div>
+          <div className="col-lg-4 col-md-6">
+            <div className="category-card cat-green">
+              <div className="cat-icon">
+                <HiOutlineCode />
               </div>
+              <h5>Writing & Translation</h5>
             </div>
           </div>
-          <div className='col-sm-4'>
-            <div className='card border border-0 shadow-lg mx-auto catcard9'>
-              <div className='row p-3'>
-                <div className='col-2'>
-                  <FaPhotoVideo  className='fs-3' />
-                </div>
-                <div className='col-10'>
 
-                  Video & Animation
-                </div>
+          <div className="col-lg-4 col-md-6">
+            <div className="category-card cat-yellow">
+              <div className="cat-icon">
+                <HiOutlineBriefcase />
               </div>
+              <h5>Admin Support</h5>
+            </div>
+          </div>
+
+          <div className="col-lg-4 col-md-6">
+            <div className="category-card cat-purple">
+              <div className="cat-icon">
+                <HiOutlineDatabase />
+              </div>
+              <h5>Data Science & Analytics</h5>
+            </div>
+          </div>
+
+          <div className="col-lg-4 col-md-6">
+            <div className="category-card cat-magenta">
+              <div className="cat-icon">
+                <HiOutlineSpeakerphone />
+              </div>
+              <h5>Marketing</h5>
+            </div>
+          </div>
+
+          <div className="col-lg-4 col-md-6">
+            <div className="category-card cat-blue">
+              <div className="cat-icon">
+                <HiOutlineHand />
+              </div>
+              <h5>Accounting & Consulting</h5>
+            </div>
+          </div>
+
+          <div className="col-lg-4 col-md-6">
+            <div className="category-card cat-orange">
+              <div className="cat-icon">
+                <HiOutlineDeviceMobile />
+              </div>
+              <h5>IT & Networking</h5>
+            </div>
+          </div>
+
+          <div className="col-lg-4 col-md-6">
+            <div className="category-card cat-sky">
+              <div className="cat-icon">
+                <HiOutlinePhotograph />
+              </div>
+              <h5>Video & Animation</h5>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </>)
+    </section>
+  )
 }
 
 export default CategorySection

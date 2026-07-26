@@ -1,115 +1,118 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
+  FaCheck,
+  FaArrowRight,
   FaFacebookF,
   FaLinkedinIn,
   FaInstagram,
   FaTwitter,
   FaYoutube,
-} from "react-icons/fa";
-
+  FaChevronUp,
+} from 'react-icons/fa'
 
 const Footer = () => {
-  return (<>
-    <div className='row footer bg-dark g-4'>
-      <div className='col-sm-3 text-light footercol'>
-        <h4 >Contact <span className='highlight'>Us</span></h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde veniam quis incidunt animi laboriosam eius, id dolore quae deserunt rerum ratione. Maiores labore culpa doloribus nihil libero earum at error.</p>
-        <p><b>Add: </b> Plot No-01, Behind Thompson College, Bahraich Road, Gonda, Uttar Pradesh 271001</p>
-        <p><b>Call: </b>+91-7408926512</p>
-        <p><b>Email: </b>ad74mi@gmail.com</p>
-      </div>
-      <div className='col-sm-3 text-light footercol '>
-        <h4>Zentora <span className='highlight'>Platform</span></h4>
+  const [email, setEmail] = useState('')
 
-        <ul>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/projects">Browse Projects</Link></li>
-          <li><Link to="/freelancers">Find Freelancers</Link></li>
-          <li><Link to="/post-project">Post a Project</Link></li>
-          <li><Link to="/how-it-works">How It Works</Link></li>
-          <li><Link to="/stories">Success Stories</Link></li>
-        </ul>
-      </div>
-      <div className='col-sm-3 text-light footercol'>
-        <h4>Links</h4>
+  const scrollTop = () => window.scrollTo({ top: 0, behavior: 'smooth' })
 
-        <ul>
-          <li><Link to="/contact">Contact Us</Link></li>
-          <li><Link to="/gallery">Gallery</Link></li>
-          <li><Link to="/news">News & Articles</Link></li>
-          <li><Link to="/faq">FAQs</Link></li>
-          <li><Link to="/coming">Coming Soon</Link></li>
-          <li><Link to="/login">Sign In / Registration</Link></li>
-        </ul>
-      </div>
-      <div className='col-sm-3 text-light footercol'>
-        <h4>Our <span className='highlight'>Contacts</span></h4>
-        <p>
-          Enter your email address to register
-          to our newsletter subscription
-        </p>
+  return (
+    <footer className="site-footer">
+      <div className="container">
+        <div className="row g-4 g-lg-5">
+          <div className="col-lg-3 col-md-6">
+            <Link to="/" className="footer-brand d-flex align-items-center gap-2">
+              <span className="brand-icon"><FaCheck /></span>
+              <span className="brand-text">Zentora</span>
+            </Link>
+            <p className="footer-about">
+              Zentora — Where Talent Meets Opportunity. The future of freelancing
+              is here. Connect. Collaborate. Earn.
+            </p>
+            <p className="footer-contact"><b>Add:</b> 70-80 Upper St Norwich NR2</p>
+            <p className="footer-contact"><b>Call:</b> +01 123 5641 231</p>
+            <p className="footer-contact"><b>Email:</b> hello@zentora.com</p>
+          </div>
 
-        <div className='d-flex mt-4'>
-          <input
-            type="email"
-            className='form-control'
-            placeholder='Your Email'
-          />
+          <div className="col-lg-3 col-md-6">
+            <h5>Zentora Platform</h5>
+            <ul className="list-unstyled footer-links">
+              <li><Link to="/about-us">About</Link></li>
+              <li><Link to="/services">Browse Projects</Link></li>
+              <li><Link to="/services">Find Freelancers</Link></li>
+              <li><Link to="/register">Post a Project</Link></li>
+              <li><Link to="/about-us">How It Works</Link></li>
+              <li><Link to="/about-us">Success Stories</Link></li>
+            </ul>
+          </div>
 
-          <button className='btn btn-success ms-2'>
-            Subscribe
+          <div className="col-lg-3 col-md-6">
+            <h5>Links</h5>
+            <ul className="list-unstyled footer-links">
+              <li><Link to="/contact-us">Contact Us</Link></li>
+              <li><Link to="/services">Gallery</Link></li>
+              <li><Link to="/">News &amp; Articles</Link></li>
+              <li><Link to="/contact-us">FAQ&apos;s</Link></li>
+              <li><Link to="/">Coming Soon</Link></li>
+              <li><Link to="/login">Sign In/Registration</Link></li>
+            </ul>
+          </div>
+
+          <div className="col-lg-3 col-md-6">
+            <h5>Contacts</h5>
+            <p className="footer-about">
+              Enter your email address to register to our newsletter subscription
+            </p>
+            <form
+              className="footer-subscribe"
+              onSubmit={(e) => {
+                e.preventDefault()
+                setEmail('')
+              }}
+            >
+              <input
+                type="email"
+                className="form-control"
+                placeholder="Your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+              <button type="submit" className="btn btn-teal">
+                Subscribe <FaArrowRight className="ms-1" />
+              </button>
+            </form>
+            <div className="footer-social">
+              <a href="https://facebook.com" target="_blank" rel="noreferrer" className="facebook" aria-label="Facebook">
+                <FaFacebookF />
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="linkedin" aria-label="LinkedIn">
+                <FaLinkedinIn />
+              </a>
+              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="instagram" aria-label="Instagram">
+                <FaInstagram />
+              </a>
+              <a href="https://twitter.com" target="_blank" rel="noreferrer" className="twitter" aria-label="Twitter">
+                <FaTwitter />
+              </a>
+              <a href="https://youtube.com" target="_blank" rel="noreferrer" className="youtube" aria-label="YouTube">
+                <FaYoutube />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="footer-bottom">
+          <p>
+            Copyright 2026 <span>Zentora</span> — Hire. Work. Grow. All Rights Reserved
+          </p>
+          <button type="button" className="scroll-top" onClick={scrollTop} aria-label="Scroll to top">
+            <FaChevronUp />
           </button>
         </div>
-        <div className="ficons">
-          <a
-            href="https://www.facebook.com/aa.darsh74"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="facebook"
-          >
-            <FaFacebookF />
-          </a>
-
-          <a
-            href="https://www.linkedin.com/in/ad01m/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="linkedin"
-          >
-            <FaLinkedinIn />
-          </a>
-          
-          <a
-            href="https://www.instagram.com/ad.01m?igsh=bnU2bnhobmZwejdk"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="instagram"
-          >
-            <FaInstagram />
-          </a>
-
-          <a
-            href="https://x.com/ad74mi"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="twitter"
-          >
-            <FaTwitter />
-          </a>
-
-          <a
-            href="https://www.youtube.com/@ad.01m"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="youtube"
-          >
-            <FaYoutube />
-          </a>
-        </div>
       </div>
-    </div>
-  </>)
+    </footer>
+  )
 }
 
 export default Footer

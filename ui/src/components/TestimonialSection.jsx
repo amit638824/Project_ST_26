@@ -1,39 +1,78 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { FaStar } from "react-icons/fa";
+import { FaArrowRight, FaQuoteRight, FaStar } from 'react-icons/fa'
 
 const TestimonialSection = () => {
-  return (<>
-  <div className='row py-3 testimonial'>
-    <div className='col-sm-10 mx-auto'>
-      <div className='webheading'>Our <b className='text-color1'>Testimonials</b></div>
-      <hr className='w-25 mx-auto text-color1' />
-      <div className='row'>
-        <div className='col-sm-6'>
-          <span className=''>TESTIMONIALS</span>
-          <h3 className='testhead'>What our Zentora<br/> Community Says</h3>
-          <p>Clients and freelancers worldwide trust Zentora to connect, collaborate, and earn — building careers and businesses without borders.</p>
-          <Link className='bg-color1 px-4 py-2 text-light'>View All</Link>
-        </div>
-        <div className='col-sm-3'>
-          <div className='shadow-lg p-3'>
-            <img src='/images/testimonial-04.jpg' className='img-fluid rounded-circle'/>
-            <p className='testp'>isicing elit. Ad quia voluptatum ducimus consectetur iusto magni labore nesciunt aut eveniet tempora quaerat earum quo ut amet, vel quisquam repudiandae fugiat repellat?</p>
-            <p className='teststar'>
-              <FaStar className='text-warning'/>
-              <FaStar className='text-warning'/>
-              <FaStar className='text-warning'/>
-              <FaStar className='text-warning'/>
-              <FaStar className='text-warning'/>
+  return (
+    <section className="testimonial-section section-pad">
+      <div className="container">
+        <div className="row align-items-center g-4">
+          <div className="col-lg-4">
+            <p className="eyebrow">TESTIMONIALS</p>
+            <h2 className="section-title text-start">
+              What Our Zentora{' '}
+              <span className="underline-word">Community</span> Says
+            </h2>
+            <p className="section-sub text-start ms-0">
+              Clients and freelancers worldwide trust Zentora to connect,
+              collaborate, and earn — building careers and businesses without borders.
             </p>
-            <p className='m-0'>Shubham Singh</p>
-            <p className='m-0 testpost'>Software Engineer</p>
+            <Link to="/about-us" className="btn btn-orange">
+              View All <FaArrowRight className="ms-2" />
+            </Link>
+          </div>
+
+          <div className="col-lg-8">
+            <div className="row g-4">
+              <div className="col-md-6">
+                <div className="testimonial-card">
+                  <div className="testi-avatar">
+                    <img src="/images/testimonial-01.png" alt="David Owens" />
+                    <span className="quote-badge"><FaQuoteRight /></span>
+                  </div>
+                  <p className="testi-text">
+                    Zentora helped me land global clients and grow my freelance career
+                    with secure escrow and transparent bidding.
+                  </p>
+                  <div className="testi-stars">
+                    <FaStar />
+                    <FaStar />
+                    <FaStar />
+                    <FaStar />
+                    <FaStar />
+                  </div>
+                  <h6>David Owens</h6>
+                  <span className="testi-role">Designer</span>
+                </div>
+              </div>
+
+              <div className="col-md-6">
+                <div className="testimonial-card">
+                  <div className="testi-avatar">
+                    <img src="/images/testimonial-02.png" alt="Tom Hurley" />
+                    <span className="quote-badge"><FaQuoteRight /></span>
+                  </div>
+                  <p className="testi-text">
+                    Hiring on Zentora is seamless. Quality talent, fair pricing, and
+                    support that actually shows up when you need it.
+                  </p>
+                  <div className="testi-stars">
+                    <FaStar />
+                    <FaStar />
+                    <FaStar />
+                    <FaStar />
+                    <FaStar />
+                  </div>
+                  <h6>Tom Hurley</h6>
+                  <span className="testi-role">Content Creator</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  </>)
+    </section>
+  )
 }
 
 export default TestimonialSection

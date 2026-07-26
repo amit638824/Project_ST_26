@@ -1,85 +1,73 @@
-import React from "react";
+import React from 'react'
+import { FiShare2 } from 'react-icons/fi'
 
 const TalentSection = () => {
   return (
-    <>
-      <div className="row py-5 article">
-        <div className="col-sm-10 mx-auto">
+    <section className="talent-section section-pad">
+      <div className="container">
+        <div className="section-header text-center">
+          <p className="eyebrow">TOP TALENT</p>
+          <h2 className="section-title">
+            Featured <span className="underline-word">Freelancers</span> on Zentora
+          </h2>
+        </div>
 
-          <div className="webheading text-center">
-            Top <b className="text-color1">Talents</b>
+        <div className="row g-4">
+          <div className="col-lg-3 col-md-6">
+            <div className="talent-card">
+              <div className="talent-img-wrap">
+                <img src="/images/team-01.webp" alt="Jane Seymour" className="talent-img" />
+                <button type="button" className="share-btn" aria-label="Share">
+                  <FiShare2 />
+                </button>
+              </div>
+              <h5>Jane Seymour</h5>
+              <p>UI Designer</p>
+            </div>
           </div>
 
-          <hr className="w-25 mx-auto text-color1" />
-
-          <div className="row g-4 mt-3">
-
-            {/* Card 1 */}
-            <div className="col-lg-3 col-md-6 col-sm-6">
-              <div className="talent-card">
-                <img
-                  src="/images/team-01.webp"
-                  className="img-fluid talent-img"
-                  alt="Jane Seymour"
-                />
-                <h4 className="text-center mt-3">Jane Seymour</h4>
-                <h6 className="text-center text-secondary">
-                  UI Designer
-                </h6>
+          <div className="col-lg-3 col-md-6">
+            <div className="talent-card">
+              <div className="talent-img-wrap">
+                <img src="/images/team-02.webp" alt="Edward Norton" className="talent-img" />
+                <button type="button" className="share-btn" aria-label="Share">
+                  <FiShare2 />
+                </button>
               </div>
+              <h5>Edward Norton</h5>
+              <p>Web Developer</p>
             </div>
-
-            {/* Card 2 */}
-            <div className="col-lg-3 col-md-6 col-sm-6">
-              <div className="talent-card">
-                <img
-                  src="/images/team-02.webp"
-                  className="img-fluid talent-img"
-                  alt="Edward Norton"
-                />
-                <h4 className="text-center mt-3">Edward Norton</h4>
-                <h6 className="text-center text-secondary">
-                  Web Developer
-                </h6>
-              </div>
-            </div>
-
-            {/* Card 3 */}
-            <div className="col-lg-3 col-md-6 col-sm-6">
-              <div className="talent-card">
-                <img
-                  src="/images/team-03.webp"
-                  className="img-fluid talent-img"
-                  alt="Penelope Cruz"
-                />
-                <h4 className="text-center mt-3">Penelope Cruz</h4>
-                <h6 className="text-center text-secondary">
-                  Digital Marketer
-                </h6>
-              </div>
-            </div>
-
-            {/* Card 4 */}
-            <div className="col-lg-3 col-md-6 col-sm-6">
-              <div className="talent-card">
-                <img
-                  src="/images/team-04.webp"
-                  className="img-fluid talent-img"
-                  alt="John Travolta"
-                />
-                <h4 className="text-center mt-3">John Travolta</h4>
-                <h6 className="text-center text-secondary">
-                  WordPress Expert
-                </h6>
-              </div>
-            </div>
-
           </div>
 
+          <div className="col-lg-3 col-md-6">
+            <div className="talent-card">
+              <div className="talent-img-wrap">
+                <img src="/images/team-03.webp" alt="Penelope Cruz" className="talent-img" />
+                <button type="button" className="share-btn" aria-label="Share">
+                  <FiShare2 />
+                </button>
+              </div>
+              <h5>Penelope Cruz</h5>
+              <p>Digital Marketer</p>
+            </div>
+          </div>
+
+          <div className="col-lg-3 col-md-6">
+            <div className="talent-card">
+              <div className="talent-img-wrap">
+                <img src="/images/team-04.webp" alt="John Travolta" className="talent-img" />
+                <button type="button" className="share-btn" aria-label="Share">
+                  <FiShare2 />
+                </button>
+              </div>
+              <h5>John Travolta</h5>
+              <p>WordPress Expert</p>
+            </div>
+          </div>
         </div>
       </div>
-    </>
-  );
-};
+    </section>
+  )
+}
 
-export default TalentSection;
+export default TalentSection
