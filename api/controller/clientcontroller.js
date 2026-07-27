@@ -33,3 +33,26 @@ export const postProject = async (req, res) => {
         })
     }
 }
+
+export const clientProjectList = async (req, res) => {
+    try {
+        const { clientId } = req.query;
+        const result = await projectModel.find({ clientId })
+        res.json({
+            code: 200,
+            success: true,
+            message: "data fetched",
+            result: result,
+            error: false
+        })
+    } catch (err) {
+        console.log(err);
+        res.json({
+            code: 500,
+            success: false,
+            message: "Internal Server Error",
+            result: "",
+            error: true
+        })
+    }
+}
