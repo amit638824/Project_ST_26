@@ -10,12 +10,8 @@ const AdminUsers = () => {
   }, []);
 
   const fetchData = async () => {
-    try {
-      const res = await axios.get("http://localhost:9000/admin-users-list");
-      setData(res?.data?.result || []);
-    } catch (error) {
-      console.log(error);
-    }
+    const res = await axios.get("http://localhost:9000/admin-users-list");
+      setData(res?.data?.result);
   };
 
   return (

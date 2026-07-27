@@ -10,12 +10,8 @@ const AdminProjects = () => {
   }, []);
 
   const fetchData = async () => {
-    try {
       const res = await axios.get("http://localhost:9000/admin-project-list");
-      setData(res?.data?.result || []);
-    } catch (error) {
-      console.log(error);
-    }
+      setData(res?.data?.result);
   };
 
   return (
