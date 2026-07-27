@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const userSchema=new mongoose.Schema({
+const userSchema = new mongoose.Schema({
     name: {
         type: String,
     },
@@ -51,5 +51,23 @@ const userSchema=new mongoose.Schema({
 
 })
 
-export const userModel=mongoose.model("users",userSchema)
+export const userModel = mongoose.model("users", userSchema)
 
+// project
+const projectSchema = new mongoose.Schema({
+    clientId: String,
+    title: String,
+    desc: String,
+    budget: String,
+    duration: String,
+    status: {
+        type: String,
+        default: false
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now
+    }
+})
+
+export const projectModel=mongoose.model("projects",projectSchema)
