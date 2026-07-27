@@ -2,6 +2,8 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const schema = yup.object({
   title: yup.string().required(),
@@ -9,17 +11,34 @@ const schema = yup.object({
   duration: yup.string().required(),
   desc: yup.string().required()
 });
-//add
+
 const ClientPostProject = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema), });
 
-  const handleAdd = (data) => {
-    console.log(data);
- 
+  const handleAdd = async (data) => {
+    const info = JSON.parse(localStorage.getItem('info'))
+    const clientId = info?._id;
+    const finalData = { ...data, clientId }
+    const res = await axios.post('http://localhost:9000/client-post-project', finalData)
+    if (res?.data?.success == true) {
+      Swal.fire({
+        title: "Post Project",
+        text: res?.data?.message,
+        icon: "success"
+      })
+      reset()
+    } else {
+      Swal.fire({
+        title: "Post Project",
+        text: res?.data?.message,
+        icon: "error"
+      })
+    }
   };
 
   return (
