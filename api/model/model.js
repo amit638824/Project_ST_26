@@ -91,4 +91,18 @@ const masterPlanSchema = new mongoose.Schema({
         default: Date.now
     }
 })
-export const masterPlanModel=mongoose.model('masterplans',masterPlanSchema)
+export const masterPlanModel = mongoose.model('masterplans', masterPlanSchema);
+
+const subscriptionSchema = new mongoose.Schema({
+    planId: String,
+    userId: String,
+    status: {
+        type: String,
+        default: true
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now
+    }
+})
+export const subscriptionModel = mongoose.model("subscriptions", subscriptionSchema)

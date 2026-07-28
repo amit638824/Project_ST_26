@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { FaCheck, FaTimes } from 'react-icons/fa'
-
+import Swal from 'sweetalert2'
 const UserPlans = () => {
   const [data, setData] = useState([])
   useEffect(() => {
@@ -11,7 +11,39 @@ const UserPlans = () => {
     const res = await axios.get('http://localhost:9000/admin-get-plans')
     setData(res?.data?.result)
   }
-  
+  const handlePurchasePlan = (item) => {
+    const info = JSON.parse(localStorage.getItem('info'));
+    const userId = info?._id;
+    const planId = item?._id;
+    Swal.fire({
+      title: "Are you sure want to purchase this one ?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const data = { planId, userId };
+        const res = await axios.post('http://localhost:9000/user-purchase-plan', data)
+        if (res?.data?.success == true) {
+          Swal.fire({
+            title: "PurchasePlan",
+            text: res?.data?.message,
+            icon: "success"
+          })
+        } else {
+          Swal.fire({
+            title: "PurchasePlan",
+            text: res?.data?.message,
+            icon: "error"
+          })
+        }
+      }
+    });
+  }
+
   return (
     <section className="pricing-section section-pad">
       <div className="container">
@@ -39,7 +71,7 @@ const UserPlans = () => {
 
         <div className="row g-4 justify-content-center">
           {data?.map((item) => {
-            return (<div className="col-12 col-sm-6 col-lg-4">
+            return (<div key={item?._id} className="col-12 col-sm-6 col-lg-4">
               <div className="pricing-card popular h-100">
                 {item?.popular && <span className="popular-badge">Most Popular</span>}
 
@@ -73,8 +105,8 @@ const UserPlans = () => {
                   </ul>
                 </div>
                 <div className="pricing-card-bottom">
-                  <button type="button" className="plan-btn plan-btn-solid">
-                    Get Plans
+                  <button onClick={() => handlePurchasePlan(item)} type="button" className="plan-btn plan-btn-solid">
+                    Get Plan
                   </button>
                   <p className="plan-footer">50 credits included · 1 credit per bid</p>
                 </div>
