@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -15,6 +15,14 @@ const schema = yup.object({
 });
 
 const AdminPlans = () => {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    fetchData()
+  }, [])
+  const fetchData = async () => {
+    const res = await axios.get('http://localhost:9000/admin-get-plans');
+    setData(res?.data?.result)
+  }
   const {
     register,
     handleSubmit,
@@ -34,6 +42,7 @@ const AdminPlans = () => {
         icon: "success"
       })
       reset()
+      fetchData()
     } else {
       Swal.fire({
         title: "Plan",
@@ -156,45 +165,31 @@ const AdminPlans = () => {
                       <tr>
                         <th>Plan Name</th>
                         <th>Monthly Credits</th>
-                        <th>Credit / Bid</th>
+                        <th>Tag Line</th>
                         <th>Price / Mo</th>
                         <th>Actions</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>STARTER</td>
-                        <td>10</td>
-                        <td>1</td>
-                        <td>₹0</td>
-                        <td>
-                          <button type="button" className="action-btn action-btn-delete">
-                            <FaTrash /> Delete
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>PRO</td>
-                        <td>50</td>
-                        <td>1</td>
-                        <td>₹499</td>
-                        <td>
-                          <button type="button" className="action-btn action-btn-delete">
-                            <FaTrash /> Delete
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>ELITE</td>
-                        <td>200</td>
-                        <td>1</td>
-                        <td>₹1,499</td>
-                        <td>
-                          <button type="button" className="action-btn action-btn-delete">
-                            <FaTrash /> Delete
-                          </button>
-                        </td>
-                      </tr>
+                      {
+                        data?.map((item) => {
+                          return (
+                            <tr>
+                              <td>{item?.name}</td>
+                              <td>{item?.credits}</td>
+                              <td>{item?.tagline}</td>
+                              <td>₹{item?.price}</td>
+                              <td>
+                                <button type="button" className="action-btn action-btn-delete">
+                                  <FaTrash /> Delete
+                                </button>
+                              </td>
+                            </tr>
+                          )
+                        })
+                      }
+
+
                     </tbody>
                   </table>
                 </div>
