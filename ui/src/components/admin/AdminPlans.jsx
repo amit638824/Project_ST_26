@@ -3,13 +3,15 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { FaPlus, FaTrash } from "react-icons/fa";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const schema = yup.object({
   name: yup.string().required().min(2),
   credits: yup.string().required().min(1),
   price: yup.string().required().min(1),
   tagline: yup.string().required().min(3),
-  featured: yup.boolean(),
+  popular: yup.boolean(),
 });
 
 const AdminPlans = () => {
@@ -20,14 +22,25 @@ const AdminPlans = () => {
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
-    defaultValues: {
-      featured: false,
-    },
+
   });
 
-  const onSubmit = (data) => {
-    console.log(data);
-    reset();
+  const onSubmit = async (data) => {
+    const res = await axios.post('http://localhost:9000/admin-create-plan', data);
+    if (res?.data?.success == true) {
+      Swal.fire({
+        title: "Plan",
+        text: res?.data?.message,
+        icon: "success"
+      })
+      reset()
+    } else {
+      Swal.fire({
+        title: "Plan",
+        text: res?.data?.message,
+        icon: "error"
+      })
+    }
   };
 
   return (
@@ -109,7 +122,7 @@ const AdminPlans = () => {
                                 type="checkbox"
                                 className="form-check-input"
                                 id="planFeatured"
-                                {...register("featured")}
+                                {...register("popular")}
                               />
                               <label className="form-check-label fw-semibold" htmlFor="planFeatured">
                                 Mark as Most Popular

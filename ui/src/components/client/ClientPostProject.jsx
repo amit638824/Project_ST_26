@@ -4,6 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const schema = yup.object({
   title: yup.string().required(),
@@ -13,6 +14,7 @@ const schema = yup.object({
 });
 
 const ClientPostProject = () => {
+  const navigate=useNavigate()
   const {
     register,
     handleSubmit,
@@ -32,6 +34,7 @@ const ClientPostProject = () => {
         icon: "success"
       })
       reset()
+      navigate('/client-manage-projects')
     } else {
       Swal.fire({
         title: "Post Project",

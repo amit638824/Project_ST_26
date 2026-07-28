@@ -70,4 +70,25 @@ const projectSchema = new mongoose.Schema({
     }
 })
 
-export const projectModel=mongoose.model("projects",projectSchema)
+export const projectModel = mongoose.model("projects", projectSchema)
+
+const masterPlanSchema = new mongoose.Schema({
+    name: String,
+    price: String,
+    credits: String,
+    tagline: String,
+    features: String,
+    popular: {
+        type: Boolean,
+        default: false
+    },
+    status: {
+        type: Boolean,
+        default: true
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now
+    }
+})
+export const masterPlanModel=mongoose.model('masterplans',masterPlanSchema)
