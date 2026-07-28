@@ -1,5 +1,29 @@
 import { userModel, projectModel, masterPlanModel } from "../model/model.js"
+export const adminStats = async (req, res) => {
+    try {
+        const users = await userModel.countDocuments({ type: "user" });
+        const clients = await userModel.countDocuments({ type: "client" });
+        const projects = await projectModel.countDocuments();
+        const result = { users, clients, projects }
+        res.json({
+            code: 200,
+            success: true,
+            message: "Data fetched",
+            result: result,
+            error: false
+        })
+    } catch (err) {
+        console.log(err);
+        res.json({
+            code: 500,
+            success: false,
+            message: "Internal Server Error",
+            result: "",
+            error: true
+        })
 
+    }
+}
 export const getmasterplan = async (req, res) => {
     try {
         const result = await masterPlanModel.find().sort({ createdAt: -1 })
