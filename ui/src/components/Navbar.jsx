@@ -451,6 +451,9 @@ const UserMenu = () => {
                     <NavLink className="nav-link" to="/user-dashboard" end>Dashboard</NavLink>
                   </li>
                   <li className="nav-item">
+                    <NavLink className="nav-link" to="/user-plans">Plans</NavLink>
+                  </li>
+                  <li className="nav-item">
                     <NavLink className="nav-link" to="/user-project">Projects</NavLink>
                   </li>
                   <li className="nav-item">
@@ -459,9 +462,7 @@ const UserMenu = () => {
                   <li className="nav-item">
                     <NavLink className="nav-link" to="/user-profile">Profile</NavLink>
                   </li>
-                  <li className="nav-item">
-                    <NavLink className="nav-link" to="/user-plans">Plans</NavLink>
-                  </li>
+
                   <li className="nav-item">
                     <button className="nav-link" onClick={logout}>Logout</button>
                   </li>

@@ -1,5 +1,53 @@
-import { masterPlanModel, projectModel, subscriptionModel, userModel } from "../model/model.js"
 
+import { masterPlanModel, projectModel, subscriptionModel, userModel, bidsModel } from "../model/model.js"
+
+export const createUserBids = async (req, res) => {
+    try {
+        const { userId, projectId, amount } = req.body;
+        const isExist = await bidsModel.findOne({ userId, projectId });
+        if (isExist) {
+            res.json({
+                code: 400,
+                success: false,
+                message: "You have already placed the bids.",
+                result: "",
+                error: true
+            })
+        } else {
+            const user = await userModel.findOne({ _id: userId });
+            if (user?.credit > 0) {
+                const data = new bidsModel({ userId, projectId, amount });
+                const result = await data.save();
+                const remCredits = parseInt(user?.credit) - 1
+                await userModel.updateOne({ _id: userId }, { $set: { credit: remCredits } })
+                res.json({
+                    code: 200,
+                    success: true,
+                    message: "Bids Placed successfully.",
+                    result: result,
+                    error: false
+                })
+            } else {
+                res.json({
+                    code: 400,
+                    success: false,
+                    message: "You have not suficient credits.Please purchase plan.",
+                    result: "",
+                    error: true
+                })
+            }
+        }
+    } catch (err) {
+        console.log(err)
+        res.json({
+            code: 500,
+            success: false,
+            message: "Internal Server Error",
+            result: "",
+            error: true
+        })
+    }
+}
 export const userPurchasePlan = async (req, res) => {
     try {
         const { planId, userId } = req.body;
@@ -17,7 +65,7 @@ export const userPurchasePlan = async (req, res) => {
             message: "Plan purchased successfully",
             result: result,
             error: false
-        }) 
+        })
     } catch (err) {
         console.log(err)
         res.json({

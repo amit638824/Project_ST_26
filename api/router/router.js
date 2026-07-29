@@ -2,7 +2,7 @@ import express from 'express';
 import { userRegister,userLogin } from '../controller/authcontroller.js';
 import { adminStats,adminUserList,adminClientList,adminProjectList,createmasterplan ,getmasterplan} from '../controller/admincontroller.js';
 import { postProject ,clientProjectList} from '../controller/clientcontroller.js';
-import { userProjectList,userPurchasePlan } from '../controller/usercontroller.js';
+import { userProjectList,userPurchasePlan,createUserBids} from '../controller/usercontroller.js';
 const router=express.Router();
 router.post("/register",userRegister)
 router.post("/login",userLogin)
@@ -19,5 +19,6 @@ router.get('/client-project-list',clientProjectList)
 //user api
 router.get('/user-project-list',userProjectList)
 router.post('/user-purchase-plan',userPurchasePlan)
+router.post('/user-create-bids',createUserBids)
 
 export default router;

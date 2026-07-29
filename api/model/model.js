@@ -106,3 +106,18 @@ const subscriptionSchema = new mongoose.Schema({
     }
 })
 export const subscriptionModel = mongoose.model("subscriptions", subscriptionSchema)
+
+const bidsSchema = new mongoose.Schema({
+    userId: String,
+    projectId: String,
+    amount: String,
+    status: {
+        type: String,
+        default: "pending"
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now
+    }
+})
+export const bidsModel = mongoose.model("bids", bidsSchema)
