@@ -1,4 +1,40 @@
-import { projectModel } from "../model/model.js"
+import { bidsModel, projectModel, userModel } from "../model/model.js"
+export const clientBidingList = async (req, res) => {
+    try {
+        const { projectId } = req.query;
+        const raw = await bidsModel.find({ projectId })
+        const finalData = await Promise.all(
+            raw?.map(async (item) => {
+                const user = await userModel.findOne({ _id: item?.userId })
+                return {
+                    _id: item?._id,
+                    amount: item?.amount,
+                    status: item?.status,
+                    user_name: user?.name,
+                    user_email: user?.email,
+                    user_profile: user?.profile,
+
+                }
+            })
+        )
+        res.json({
+            code: 200,
+            success: true,
+            message: "Data fetched",
+            result: finalData,
+            error: false
+        })
+
+    } catch (err) {
+        res.json({
+            code: 500,
+            success: false,
+            message: "Internal Server Error",
+            result: "",
+            error: true
+        })
+    }
+}
 export const postProject = async (req, res) => {
     try {
         const { clientId, title, desc, budget, duration } = req.body
