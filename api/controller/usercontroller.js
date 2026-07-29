@@ -1,6 +1,38 @@
 
 import { masterPlanModel, projectModel, subscriptionModel, userModel, bidsModel } from "../model/model.js"
-
+export const getUserBids = async (req, res) => {
+    try {
+        const { userId } = req.query;
+        const raw = await bidsModel.find({ userId });//user ko apna filter
+        const finalData = await Promise.all(
+            raw?.map(async (item) => {
+                const projectData = await projectModel.findOne({ _id: item?.projectId })
+                return {
+                    title: projectData?.title,
+                    budget: projectData?.budget,
+                    amount: item?.amount,
+                    status: item?.status
+                }
+            })
+        )
+        res.json({
+            code: 200,
+            success: true,
+            message: "Data fetched successfully",
+            result: finalData,
+            error: false
+        })
+    } catch (err) {
+        console.log(err)
+        res.json({
+            code: 500,
+            success: false,
+            message: "Internal Server Error",
+            result: "",
+            error: true
+        })
+    }
+}
 export const createUserBids = async (req, res) => {
     try {
         const { userId, projectId, amount } = req.body;
