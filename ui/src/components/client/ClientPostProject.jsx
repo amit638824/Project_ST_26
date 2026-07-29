@@ -10,37 +10,47 @@ const schema = yup.object({
   title: yup.string().required(),
   budget: yup.string().required(),
   duration: yup.string().required(),
-  desc: yup.string().required()
+  desc: yup.string().required(),
 });
 
 const ClientPostProject = () => {
-  const navigate=useNavigate()
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm({ resolver: yupResolver(schema), });
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
 
   const handleAdd = async (data) => {
-    const info = JSON.parse(localStorage.getItem('info'))
+    const info = JSON.parse(localStorage.getItem("info"));
     const clientId = info?._id;
-    const finalData = { ...data, clientId }
-    const res = await axios.post('http://localhost:9000/client-post-project', finalData)
-    if (res?.data?.success == true) {
+
+    const finalData = { ...data, clientId };
+
+    const res = await axios.post(
+      "http://localhost:9000/client-post-project",
+      finalData
+    );
+
+    if (res?.data?.success === true) {
       Swal.fire({
         title: "Post Project",
         text: res?.data?.message,
-        icon: "success"
-      })
-      reset()
-      navigate('/client-manage-projects')
+        icon: "success",
+      });
+
+      reset();
+      navigate("/client-manage-projects");
     } else {
       Swal.fire({
         title: "Post Project",
         text: res?.data?.message,
-        icon: "error"
-      })
+        icon: "error",
+      });
     }
   };
 
@@ -55,13 +65,16 @@ const ClientPostProject = () => {
 
       <div className="row">
         <div className="col-12">
-          <div className="dash-card">
-            <div className="row mb-3">
-              <div className="col-12">
-                <h4>Post a New Freelance Project</h4>
-              </div>
-            </div>
-
+          <div
+            className="dash-card"
+            style={{
+              border: "1px solid #dee2e6",
+              borderRadius: "12px",
+              padding: "25px",
+              background: "#fff",
+            }}
+          >
+           
             <form onSubmit={handleSubmit(handleAdd)}>
               <div className="row g-3">
                 {/* Project Title */}
@@ -69,8 +82,13 @@ const ClientPostProject = () => {
                   <label className="form-label">Project Title</label>
                   <input
                     type="text"
-                    className={`form-control ${errors.title ? "is-invalid" : ""
-                      }`}
+                    className={`form-control ${
+                      errors.title ? "is-invalid" : ""
+                    }`}
+                    style={{
+                      border: "1px solid #ced4da",
+                      borderRadius: "8px",
+                    }}
                     placeholder="e.g. Develop React E-commerce Web App"
                     {...register("title")}
                   />
@@ -84,8 +102,13 @@ const ClientPostProject = () => {
                   <label className="form-label">Budget (₹)</label>
                   <input
                     type="text"
-                    className={`form-control ${errors.budget ? "is-invalid" : ""
-                      }`}
+                    className={`form-control ${
+                      errors.budget ? "is-invalid" : ""
+                    }`}
+                    style={{
+                      border: "1px solid #ced4da",
+                      borderRadius: "8px",
+                    }}
                     placeholder="e.g. 50000"
                     {...register("budget")}
                   />
@@ -99,8 +122,13 @@ const ClientPostProject = () => {
                   <label className="form-label">Timeline / Deadline</label>
                   <input
                     type="text"
-                    className={`form-control ${errors.duration ? "is-invalid" : ""
-                      }`}
+                    className={`form-control ${
+                      errors.duration ? "is-invalid" : ""
+                    }`}
+                    style={{
+                      border: "1px solid #ced4da",
+                      borderRadius: "8px",
+                    }}
                     placeholder="e.g. 3 weeks"
                     {...register("duration")}
                   />
@@ -114,8 +142,13 @@ const ClientPostProject = () => {
                   <label className="form-label">Description</label>
                   <textarea
                     rows={6}
-                    className={`form-control ${errors.desc ? "is-invalid" : ""
-                      }`}
+                    className={`form-control ${
+                      errors.desc ? "is-invalid" : ""
+                    }`}
+                    style={{
+                      border: "1px solid #ced4da",
+                      borderRadius: "8px",
+                    }}
                     placeholder="Describe the project scope, deliverables, skills needed..."
                     {...register("desc")}
                   />

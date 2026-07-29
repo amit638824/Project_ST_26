@@ -1,102 +1,103 @@
-import React from 'react'
-import { FaCheck, FaTimes, FaUser } from 'react-icons/fa'
+import React from "react";
 
 const ClientReviewBids = () => {
+  const project = {
+    title: "MERN Stack Project",
+    category: "Web Development",
+    budget: "₹50,000",
+    duration: "3 Weeks",
+    postedOn: "28 July 2026",
+    proposals: 12,
+    status: "Open",
+  };
+
   return (
     <div className="container py-5">
-        <div className="row">
-          <div className="col-12">
-            <span className="dash-eyebrow">Zentora for Clients</span>
-            <h2 className="dash-heading">Review Candidate Proposals</h2>
-          </div>
+      <div className="row">
+        <div className="col-12">
+          <h2 className="dash-heading">Review Candidate Proposals</h2>
         </div>
+      </div>
 
-        <div className="row">
-          <div className="col-12">
-            <div className="dash-card">
-              <div className="row mb-3">
-                <div className="col-12">
-                  <h4>Review Candidate Proposals</h4>
-                  <p className="text-secondary mb-0">
-                    <strong>Project:</strong> E-commerce Website · Budget ₹85,000
-                  </p>
-                </div>
+      {/* Project Details */}
+      <div className="row mb-4">
+        <div className="col-12">
+          <div className="dash-card">
+            <div className="row">
+
+              <div className="col-md-4 mb-3">
+                <strong>Project Title</strong>
+                <p className="mb-0">{project.title}</p>
               </div>
 
-              <div className="row g-3">
-                <div className="col-12 col-sm-6">
-                  <div className="proposal-card h-100">
-                    <div className="row align-items-center g-2 mb-2">
-                      <div className="col-auto">
-                        <FaUser className="text-orange" />
-                      </div>
-                      <div className="col">
-                        <h6 className="mb-0 fw-bold">Edward Norton</h6>
-                      </div>
-                      <div className="col-auto">
-                        <span className="job-budget">₹80,000</span>
-                      </div>
-                    </div>
-                    <div className="row mb-2">
-                      <div className="col-12">
-                        <p className="text-secondary small mb-0">Web Developer</p>
-                      </div>
-                    </div>
-                    <div className="row mb-3">
-                      <div className="col-12">
-                        <p className="job-card-desc mb-0">&quot;Full React + Node e-commerce store in 5 weeks.&quot;</p>
-                      </div>
-                    </div>
-                    <div className="row g-2">
-                      <div className="col-auto">
-                        <button type="button" className="btn btn-sm btn-orange"><FaCheck /> Accept</button>
-                      </div>
-                      <div className="col-auto">
-                        <button type="button" className="btn btn-sm btn-outline-danger"><FaTimes /> Reject</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="col-12 col-sm-6">
-                  <div className="proposal-card h-100">
-                    <div className="row align-items-center g-2 mb-2">
-                      <div className="col-auto">
-                        <FaUser className="text-orange" />
-                      </div>
-                      <div className="col">
-                        <h6 className="mb-0 fw-bold">Jane Seymour</h6>
-                      </div>
-                      <div className="col-auto">
-                        <span className="job-budget">₹78,500</span>
-                      </div>
-                    </div>
-                    <div className="row mb-2">
-                      <div className="col-12">
-                        <p className="text-secondary small mb-0">UI Designer</p>
-                      </div>
-                    </div>
-                    <div className="row mb-3">
-                      <div className="col-12">
-                        <p className="job-card-desc mb-0">&quot;Clean UI/UX with Figma handoff and responsive frontend.&quot;</p>
-                      </div>
-                    </div>
-                    <div className="row g-2">
-                      <div className="col-auto">
-                        <button type="button" className="btn btn-sm btn-orange"><FaCheck /> Accept</button>
-                      </div>
-                      <div className="col-auto">
-                        <button type="button" className="btn btn-sm btn-outline-danger"><FaTimes /> Reject</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <div className="col-md-4 mb-3">
+                <strong>Category</strong>
+                <p className="mb-0">{project.category}</p>
               </div>
+
+              <div className="col-md-4 mb-3">
+                <strong>Budget</strong>
+                <p className="mb-0">{project.budget}</p>
+              </div>
+
+              <div className="col-md-4 mb-3">
+                <strong>Duration</strong>
+                <p className="mb-0">{project.duration}</p>
+              </div>
+
+              <div className="col-md-4 mb-3">
+                <strong>Posted On</strong>
+                <p className="mb-0">{project.postedOn}</p>
+              </div>
+
+              <div className="col-md-4 mb-3">
+                <strong>Total Proposals</strong>
+                <p className="mb-0">{project.proposals}</p>
+              </div>
+
             </div>
           </div>
         </div>
       </div>
-  )
-}
 
-export default ClientReviewBids
+      {/* Candidate Table */}
+      <div className="row">
+        <div className="col-12">
+          <div className="dash-card">
+            <div className="table-responsive">
+              <table className="table dash-table mb-0">
+                <thead>
+                  <tr>
+                    <th>Freelancer</th>
+                    <th>Email</th>
+                    <th>Bid Amount</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td>John Travolta</td>
+                    <td>user@gmail.com</td>
+                    <td>₹55,000</td>
+                    <td>
+                      <span className="status-bad">Rejected</span>
+                    </td>
+                    <td>
+                      <span className="status-ok me-2">Accept</span>
+                      <span className="status-bad">Reject</span>
+                    </td>
+                  </tr>
+                </tbody>
+
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ClientReviewBids;
