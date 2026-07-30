@@ -1,8 +1,8 @@
 import { bidsModel, projectModel, userModel } from "../model/model.js"
 export const clientBidingActions = async (req, res) => {
     try {
-        const { projectId, status } = req.body;
-        const result = await bidsModel.updateOne({ projectId }, { $set: { status } })
+        const { projectId, status, userId } = req.body;
+        const result = await bidsModel.updateOne({ projectId, userId }, { $set: { status } })
         res.json({
             code: 200,
             success: true,
@@ -36,6 +36,7 @@ export const clientBidingList = async (req, res) => {
                     user_name: user?.name,
                     user_email: user?.email,
                     user_profile: user?.profile,
+                    userId: user?._id
 
                 }
             })

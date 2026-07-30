@@ -26,7 +26,7 @@ export const adminStats = async (req, res) => {
 }
 export const getmasterplan = async (req, res) => {
     try {
-        const result = await masterPlanModel.find().sort({ createdAt: -1 })
+        const result = await masterPlanModel.find() 
         res.json({
             code: 200,
             success: true,
