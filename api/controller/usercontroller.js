@@ -2,27 +2,28 @@
 import { masterPlanModel, projectModel, subscriptionModel, userModel, bidsModel } from "../model/model.js"
 export const UserProfileUpdate = async (req, res) => {
     try {
-        const {_id,name ,email ,phone,location,bio,rate ,skill headline ,password,npassword, }=req.body;
-        const isExist=await await userModel.findOne({_id,password})
-        if(isExist){
-             const result=await await userModel.updateOne({_name ,email ,phone,location,bio,rate ,skill headline ,password:npassword,})
-              res.json({
-            code: 200,
-            success: true,
-            message: "Data fetched successfully",
-            result: result,
-            error: false
-        })
-        }rsle{
-             res.json({
-            code: 400,
-            success: false,
-            message: "User not found",
-            result:  '',
-            error: true
-        })
+        const { _id, name, email, phone, location, bio, rate, skill, headline, password, npassword } = req.body;
+        const isExist = await userModel.findOne({ _id, password, type: "user" })
+        if (isExist) {
+            const updateData = { name, email, phone, location, bio, rate, skill, headline }
+            if (npassword) updateData.password = npassword
+            const result = await userModel.updateOne({ _id }, { $set: updateData })
+            res.json({
+                code: 200,
+                success: true,
+                message: "Profile updated successfully",
+                result: result,
+                error: false
+            })
+        } else {
+            res.json({
+                code: 400,
+                success: false,
+                message: "Current password is incorrect",
+                result: "",
+                error: true
+            })
         }
-       
     } catch (err) {
         console.log(err)
         res.json({

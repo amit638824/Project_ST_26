@@ -149,3 +149,39 @@ export const clientProjectList = async (req, res) => {
         })
     }
 }
+
+export const ClientProfileUpdate = async (req, res) => {
+    try {
+        const { _id, name, email, phone, location, bio, password, npassword } = req.body;
+        const isExist = await userModel.findOne({ _id, password, type: "client" })
+        if (isExist) {
+            const updateData = { name, email, phone, location, bio }
+            if (npassword) updateData.password = npassword
+            const result = await userModel.updateOne({ _id }, { $set: updateData })
+            res.json({
+                code: 200,
+                success: true,
+                message: "Profile updated successfully",
+                result: result,
+                error: false
+            })
+        } else {
+            res.json({
+                code: 400,
+                success: false,
+                message: "Current password is incorrect",
+                result: "",
+                error: true
+            })
+        }
+    } catch (err) {
+        console.log(err)
+        res.json({
+            code: 500,
+            success: false,
+            message: "Internal Server Error",
+            result: "",
+            error: true
+        })
+    }
+}
