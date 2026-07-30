@@ -36,7 +36,7 @@ const AdminProjects = () => {
                     <th>Timeline</th>
                     <th>Client Id</th>
                     <th>Status</th>
-                    <th>Actions</th>
+                   
                   </tr>
                 </thead>
 
@@ -58,14 +58,7 @@ const AdminProjects = () => {
                             {item.status ? "Active" : "Pending"}
                           </span>
                         </td>
-                        <td>
-                          <button
-                            type="button"
-                            className="action-btn action-btn-delete"
-                          >
-                            <FaTrash /> Delete
-                          </button>
-                        </td>
+                         
                       </tr>
                     ))
                   ) : (

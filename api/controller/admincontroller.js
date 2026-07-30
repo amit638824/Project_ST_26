@@ -1,4 +1,42 @@
-import { userModel, projectModel, masterPlanModel } from "../model/model.js"
+import { userModel, projectModel, masterPlanModel, bidsModel } from "../model/model.js"
+
+export const adminBidingList = async (req, res) => {
+    try {
+        const raw = await bidsModel.find()
+        const finalData = await Promise.all(
+            raw?.map(async (item) => {
+                const user = await userModel.findOne({ _id: item?.userId })
+                const project = await projectModel.findOne({ _id: item?.projectId })
+                return {
+                    _id: item?._id,
+                    amount: item?.amount,
+                    status: item?.status,
+                    user_name: user?.name,
+                    user_email: user?.email,
+                    user_profile: user?.profile,
+                    userId: user?._id,
+                    projectId: item?.projectId,
+                    title: project?.title,
+                }
+            })
+        )
+        res.json({
+            code: 200,
+            success: true,
+            message: "Data fetched",
+            result: finalData,
+            error: false
+        })
+    } catch (err) {
+        res.json({
+            code: 500,
+            success: false,
+            message: "Internal Server Error",
+            result: "",
+            error: true
+        })
+    }
+}
 export const adminStats = async (req, res) => {
     try {
         const users = await userModel.countDocuments({ type: "user" });

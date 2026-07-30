@@ -1,6 +1,6 @@
 import express from 'express';
 import { userRegister, userLogin } from '../controller/authcontroller.js';
-import { adminStats, adminUserList, adminClientList, adminProjectList, createmasterplan, getmasterplan } from '../controller/admincontroller.js';
+import { adminStats, adminUserList, adminClientList, adminProjectList, adminBidingList, createmasterplan, getmasterplan } from '../controller/admincontroller.js';
 import { postProject, clientProjectList, clientBidingList, clientBidingActions, clientStats } from '../controller/clientcontroller.js';
 import { userProjectList, userPurchasePlan, createUserBids, getUserBids ,UserStats} from '../controller/usercontroller.js';
 const router = express.Router();
@@ -13,6 +13,7 @@ router.get('/admin-project-list', adminProjectList)
 router.post('/admin-create-plan', createmasterplan);
 router.get('/admin-get-plans', getmasterplan)
 router.get("/admin-stats", adminStats)
+router.get('/admin-biding-list', adminBidingList)
 //client api
 router.get('/client-stats', clientStats)//ye tm log clinet k dashboard me lga dena
 router.post('/client-post-project', postProject)

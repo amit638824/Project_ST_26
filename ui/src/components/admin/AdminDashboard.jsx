@@ -64,7 +64,7 @@ const AdminDashboard = () => {
                     <div className="col-9">
                       <h4 className="kpi-value">{data?.projects || 0}</h4>
                       <p className="kpi-label">Live Projects</p>
-                      <p className="kpi-caption">48 deals finalized</p>
+                      <p className="kpi-caption">deals finalized</p>
                     </div>
                   </div>
                 </div>
