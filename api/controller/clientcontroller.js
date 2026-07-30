@@ -33,7 +33,8 @@ export const ClientProfileUpdate = async (req, res) => {
             error: true
         })
     }
-}
+} 
+//only for client
 export const clientStats = async (req, res) => {
     try {
         const { clientId } = req.query;
