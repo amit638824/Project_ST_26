@@ -1,10 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { FaClock } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const UserProjects = () => {
   const [data, setData] = useState([]);
   const [projectId, setProjectId] = useState('');
+  const [amount, setAmount] = useState(null);
   useEffect(() => {
     fetchData();
   }, []);
@@ -13,7 +15,35 @@ const UserProjects = () => {
     const res = await axios.get("http://localhost:9000/user-project-list");
     setData(res?.data?.result);
   };
-
+  const handlePostBid = async () => {
+    const info = JSON.parse(localStorage.getItem('info'));
+    const userId = info?._id;
+    if (!amount) {
+      Swal.fire({
+        title: "Validation failed",
+        text: "Please Enter Amount",
+        icon: "error"
+      })
+      return 0
+    }
+    const data = { userId, projectId, amount }
+    const res = await axios.post('http://localhost:9000/user-create-bids', data);
+    if (res?.data?.success == true) {
+      Swal.fire({
+        title: "Biding",
+        text: res?.data?.message,
+        icon: "success"
+      })
+      setProjectId(null);
+      setAmount(null)
+    } else {
+      Swal.fire({
+        title: "Biding",
+        text: res?.data?.message,
+        icon: "error"
+      })
+    }
+  }
 
   return (
     <div className="container py-5">
@@ -75,15 +105,15 @@ const UserProjects = () => {
                             projectId == item?._id ?
                               <>
                                 <div className="d-flex justify-content-end gap-2 ">
-                                  <input className="form-control" style={{ width: "240px", border: "2px solid #ee4a03" }} type="text" />
-                                  <button className="btn btn-sm btn-orange">Submit</button>
+                                  <input placeholder="Enter your amount" onChange={(e) => setAmount(e.target.value)} className="form-control" style={{ width: "240px", border: "2px solid #ee4a03" }} type="text" />
+                                  <button onClick={handlePostBid} className="btn btn-sm btn-orange">Submit</button>
                                 </div>
                               </>
                               :
                               <button onClick={() => setProjectId(item?._id)} type="button" className="btn btn-sm btn-orange">
                                 Place Bid (1 Credit)
                               </button>
-                          } 
+                          }
                         </div>
                       </div>
                     </div>
