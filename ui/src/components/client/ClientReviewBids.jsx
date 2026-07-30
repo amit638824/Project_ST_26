@@ -111,8 +111,8 @@ const ClientReviewBids = () => {
                           <span className={item?.status == 'accept' ? 'status-ok' : 'status-bad'}>{item?.status}</span>
                         </td>
                         <td>
-                          <span className="status-ok me-2" onClick={() => handleStatus('accept', item?.userId)}>Accept</span>
-                          <span className="status-bad" onClick={() => handleStatus('reject', item?.userId)}>Reject</span>
+                          <span className="status-ok me-2" style={{ cursor: 'pointer' }} onClick={() => handleStatus('accept', item?.userId)}>Accept</span>
+                          <span className="status-bad" style={{ cursor: 'pointer' }} onClick={() => handleStatus('reject', item?.userId)}>Reject</span>
                         </td>
                       </tr>)
                     })

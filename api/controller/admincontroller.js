@@ -1,4 +1,39 @@
 import { userModel, projectModel, masterPlanModel, bidsModel } from "../model/model.js"
+export const AdminProfileUpdate = async (req, res) => {
+    try {
+        const { _id, name, email, phone, location, bio, password, npassword } = req.body;
+        const isExist = await userModel.findOne({ _id, password, type: "admin" })
+        if (isExist) {
+            const updateData = { name, email, phone, location, bio }
+            if (npassword) updateData.password = npassword
+            const result = await userModel.updateOne({ _id }, { $set: updateData })
+            res.json({
+                code: 200,
+                success: true,
+                message: "Profile updated successfully",
+                result: result,
+                error: false
+            })
+        } else {
+            res.json({
+                code: 400,
+                success: false,
+                message: "Current password is incorrect",
+                result: "",
+                error: true
+            })
+        }
+    } catch (err) {
+        console.log(err)
+        res.json({
+            code: 500,
+            success: false,
+            message: "Internal Server Error",
+            result: "",
+            error: true
+        })
+    }
+}
 
 export const adminBidingList = async (req, res) => {
     try {
@@ -64,7 +99,7 @@ export const adminStats = async (req, res) => {
 }
 export const getmasterplan = async (req, res) => {
     try {
-        const result = await masterPlanModel.find() 
+        const result = await masterPlanModel.find()
         res.json({
             code: 200,
             success: true,
@@ -183,38 +218,3 @@ export const adminProjectList = async (req, res) => {
     }
 }
 
-export const AdminProfileUpdate = async (req, res) => {
-    try {
-        const { _id, name, email, phone, location, bio, password, npassword } = req.body;
-        const isExist = await userModel.findOne({ _id, password, type: "admin" })
-        if (isExist) {
-            const updateData = { name, email, phone, location, bio }
-            if (npassword) updateData.password = npassword
-            const result = await userModel.updateOne({ _id }, { $set: updateData })
-            res.json({
-                code: 200,
-                success: true,
-                message: "Profile updated successfully",
-                result: result,
-                error: false
-            })
-        } else {
-            res.json({
-                code: 400,
-                success: false,
-                message: "Current password is incorrect",
-                result: "",
-                error: true
-            })
-        }
-    } catch (err) {
-        console.log(err)
-        res.json({
-            code: 500,
-            success: false,
-            message: "Internal Server Error",
-            result: "",
-            error: true
-        })
-    }
-}
