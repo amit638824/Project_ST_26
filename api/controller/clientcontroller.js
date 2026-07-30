@@ -3,9 +3,14 @@ import { bidsModel, projectModel, userModel } from "../model/model.js"
 export const clientStats = async (req, res) => {
     try {
         const { clientId } = req.query;
-        const totalProjects = await projectModel.countDocuments({ clientId })
-        const totalBids = 2;// ye tm log dynamic kroge
-        const totalDeals = 1;// ye tm log dynamic kroge
+        const projects = await projectModel.find({ clientId })
+        const projectIds = projects.map((p) => p._id.toString())
+        const totalProjects = projects.length
+        const totalBids = await bidsModel.countDocuments({ projectId: { $in: projectIds } })
+        const totalDeals = await bidsModel.countDocuments({
+            projectId: { $in: projectIds },
+            status: "accept",
+        })
         const result = { totalProjects, totalBids, totalDeals }
         res.json({
             code: 200,

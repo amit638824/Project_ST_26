@@ -14,7 +14,7 @@ const UserDashboard = () => {
   const fetchData = async () => {
     const userId = info?._id
     const res = await axios.get(`http://localhost:9000/user-stats?userId=${userId}`)
-    setStats(res?.data?.result || { credits: 0, totalBids: 0, Earning: 0 })
+    setStats(res?.data?.result)
   }
 
   return (
