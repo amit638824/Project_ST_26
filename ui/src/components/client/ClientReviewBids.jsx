@@ -1,6 +1,10 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 
 const ClientReviewBids = () => {
+  const location = useLocation();
+  console.log(location, "############################");
+
   const project = {
     title: "MERN Stack Project",
     category: "Web Development",
@@ -27,7 +31,7 @@ const ClientReviewBids = () => {
 
               <div className="col-md-4 mb-3">
                 <strong>Project Title</strong>
-                <p className="mb-0">{project.title}</p>
+                <p className="mb-0">{location?.state?.title}</p>
               </div>
 
               <div className="col-md-4 mb-3">
