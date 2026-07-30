@@ -4,15 +4,14 @@ import { FaClock } from "react-icons/fa";
 
 const UserProjects = () => {
   const [data, setData] = useState([]);
-  const [search, setSearch] = useState("");
-
+  const [projectId, setProjectId] = useState('');
   useEffect(() => {
     fetchData();
   }, []);
 
   const fetchData = async () => {
-     const res = await axios.get("http://localhost:9000/user-project-list");
-      setData(res?.data?.result);
+    const res = await axios.get("http://localhost:9000/user-project-list");
+    setData(res?.data?.result);
   };
 
 
@@ -72,9 +71,19 @@ const UserProjects = () => {
                           </span>
                         </div>
                         <div className="col-6 text-end">
-                          <button type="button" className="btn btn-sm btn-orange">
-                            Place Bid (1 Credit)
-                          </button>
+                          {
+                            projectId == item?._id ?
+                              <>
+                                <div className="d-flex justify-content-end gap-2 ">
+                                  <input className="form-control" style={{ width: "240px", border: "2px solid #ee4a03" }} type="text" />
+                                  <button className="btn btn-sm btn-orange">Submit</button>
+                                </div>
+                              </>
+                              :
+                              <button onClick={() => setProjectId(item?._id)} type="button" className="btn btn-sm btn-orange">
+                                Place Bid (1 Credit)
+                              </button>
+                          } 
                         </div>
                       </div>
                     </div>
