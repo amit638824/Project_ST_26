@@ -22,7 +22,7 @@ const schema = yup.object({
 })
 
 const ClientProfile = () => {
-  const info = JSON.parse(localStorage.getItem('info') || '{}')
+  const info = JSON.parse(localStorage.getItem('info'))
 
   const {
     register,
