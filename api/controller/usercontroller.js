@@ -1,5 +1,38 @@
 
 import { masterPlanModel, projectModel, subscriptionModel, userModel, bidsModel } from "../model/model.js"
+export const UserStats = async (req, res) => {
+    try {
+        const { userId } = req.query;
+        const user = await userModel.findOne({ _id: userId })
+        const bids = await bidsModel.countDocuments({ userId })
+        const raw = await bidsModel.find({ userId, status: "accept" });
+        const earning = raw?.reduce((t, item) => {
+            return t += parseInt(item?.amount)
+        }, 0)
+        const result = {
+            credits: user?.credit,
+            totalBids: bids,
+            Earning: earning
+        }
+        res.json({
+            code: 200,
+            success: true,
+            message: "Data found",
+            result: result,
+            error: false
+        })
+    } catch (err) {
+        console.log(err);
+        res.json({
+            code: 500,
+            success: false,
+            message: "Internal Server Error",
+            result: "",
+            error: true
+        })
+    }
+}
+
 export const getUserBids = async (req, res) => {
     try {
         const { userId } = req.query;

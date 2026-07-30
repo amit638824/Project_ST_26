@@ -1,4 +1,32 @@
 import { bidsModel, projectModel, userModel } from "../model/model.js"
+
+export const clientStats = async (req, res) => {
+    try {
+        const { clientId } = req.query;
+        const totalProjects = await projectModel.countDocuments({ clientId })
+        const totalBids = 2;// ye tm log dynamic kroge
+        const totalDeals = 1;// ye tm log dynamic kroge
+        const result = { totalProjects, totalBids, totalDeals }
+        res.json({
+            code: 200,
+            success: true,
+            message: "Data found",
+            result: result,
+            error: false
+        })
+    } catch (err) {
+        console.log(err);
+        res.json({
+            code: 500,
+            success: false,
+            message: "Internal Server Error",
+            result: "",
+            error: true
+        })
+    }
+}
+
+
 export const clientBidingActions = async (req, res) => {
     try {
         const { projectId, status, userId } = req.body;
