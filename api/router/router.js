@@ -1,7 +1,7 @@
 import express from 'express';
 import { userRegister,userLogin } from '../controller/authcontroller.js';
 import { adminStats,adminUserList,adminClientList,adminProjectList,createmasterplan ,getmasterplan} from '../controller/admincontroller.js';
-import { postProject ,clientProjectList,clientBidingList} from '../controller/clientcontroller.js';
+import { postProject ,clientProjectList,clientBidingList,clientBidingActions} from '../controller/clientcontroller.js';
 import { userProjectList,userPurchasePlan,createUserBids,getUserBids} from '../controller/usercontroller.js';
 const router=express.Router();
 router.post("/register",userRegister)
@@ -16,7 +16,8 @@ router.get("/admin-stats",adminStats)
 //client api
 router.post('/client-post-project',postProject)
 router.get('/client-project-list',clientProjectList)
-router.get('/client-biding-list',clientBidingList)
+router.get('/client-biding-list',clientBidingList) //biding list
+router.put('/client-biding-action',clientBidingActions) 
 //user api
 router.get('/user-project-list',userProjectList)
 router.post('/user-purchase-plan',userPurchasePlan)

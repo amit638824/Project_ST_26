@@ -1,20 +1,40 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const ClientReviewBids = () => {
   const location = useLocation();
-  console.log(location, "############################");
+  const [data, setData] = useState([])
+  useEffect(() => {
+    fetchData() //call 
+  }, [location])
 
-  const project = {
-    title: "MERN Stack Project",
-    category: "Web Development",
-    budget: "₹50,000",
-    duration: "3 Weeks",
-    postedOn: "28 July 2026",
-    proposals: 12,
-    status: "Open",
-  };
+  const fetchData = async () => {
+    const projectId = location?.state?._id
+    const res = await axios.get(`http://localhost:9000/client-biding-list?projectId=${projectId}`)
+    setData(res?.data?.result)
+  }
 
+  const handleStatus = async (status) => {
+    const projectId = location?.state?._id;
+    const data = { projectId, status }
+    const res = await axios.put('http://localhost:9000/client-biding-action', data);
+    if (res?.data?.success == true) {
+      Swal.fire({
+        title: "Actions",
+        text: res?.data?.message,
+        icon: "success"
+      })
+      fetchData()
+    } else {
+      Swal.fire({
+        title: "Actions",
+        text: res?.data?.message,
+        icon: "error"
+      })
+    }
+  }
   return (
     <div className="container py-5">
       <div className="row">
@@ -36,27 +56,27 @@ const ClientReviewBids = () => {
 
               <div className="col-md-4 mb-3">
                 <strong>Category</strong>
-                <p className="mb-0">{project.category}</p>
+                <p className="mb-0">Web Development</p>
               </div>
 
               <div className="col-md-4 mb-3">
                 <strong>Budget</strong>
-                <p className="mb-0">{project.budget}</p>
+                <p className="mb-0">₹ {location?.state?.budget}</p>
               </div>
 
               <div className="col-md-4 mb-3">
                 <strong>Duration</strong>
-                <p className="mb-0">{project.duration}</p>
+                <p className="mb-0">{location?.state?.duration}</p>
               </div>
 
               <div className="col-md-4 mb-3">
                 <strong>Posted On</strong>
-                <p className="mb-0">{project.postedOn}</p>
+                <p className="mb-0">{location?.state?.createdAt}</p>
               </div>
 
               <div className="col-md-4 mb-3">
-                <strong>Total Proposals</strong>
-                <p className="mb-0">{project.proposals}</p>
+                <strong>Description</strong>
+                <p className="mb-0">{location?.state?.desc}</p>
               </div>
 
             </div>
@@ -81,18 +101,23 @@ const ClientReviewBids = () => {
                 </thead>
 
                 <tbody>
-                  <tr>
-                    <td>John Travolta</td>
-                    <td>user@gmail.com</td>
-                    <td>₹55,000</td>
-                    <td>
-                      <span className="status-bad">Rejected</span>
-                    </td>
-                    <td>
-                      <span className="status-ok me-2">Accept</span>
-                      <span className="status-bad">Reject</span>
-                    </td>
-                  </tr>
+                  {
+                    data?.map((item) => {
+                      return (<tr>
+                        <td>{item?.user_name}</td>
+                        <td>{item?.user_email}</td>
+                        <td>₹{item?.amount}</td>
+                        <td>
+                          <span className={item?.status == 'accept' ? 'status-ok' : 'status-bad'}>{item?.status}</span>
+                        </td>
+                        <td>
+                          <span className="status-ok me-2" onClick={() => handleStatus('accept')}>Accept</span>
+                          <span className="status-bad" onClick={() => handleStatus('reject')}>Reject</span>
+                        </td>
+                      </tr>)
+                    })
+                  }
+
                 </tbody>
 
               </table>

@@ -1,4 +1,27 @@
 import { bidsModel, projectModel, userModel } from "../model/model.js"
+export const clientBidingActions = async (req, res) => {
+    try {
+        const { projectId, status } = req.body;
+        const result = await bidsModel.updateOne({ projectId }, { $set: { status } })
+        res.json({
+            code: 200,
+            success: true,
+            message: "status updated",
+            result: result,
+            error: false
+        })
+    } catch (err) {
+        console.log(err);
+        res.json({
+            code: 500,
+            success: false,
+            message: "Internal Server Error",
+            result: "",
+            error: true
+        })
+    }
+}
+
 export const clientBidingList = async (req, res) => {
     try {
         const { projectId } = req.query;
