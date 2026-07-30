@@ -221,23 +221,25 @@ const AdminMenu = () => {
                     <NavLink className="nav-link" to="/admin-dashboard" end>Dashboard</NavLink>
                   </li>
                   <li className="nav-item">
-                    <NavLink className="nav-link" to="/admin-project">Project</NavLink>
-                  </li>
-                  <li className="nav-item">
                     <NavLink className="nav-link" to="/admin-users">Users</NavLink>
                   </li>
                   <li className="nav-item">
-                    <NavLink className="nav-link" to="/admin-clients">CLient</NavLink>
+                    <NavLink className="nav-link" to="/admin-clients">Client</NavLink>
                   </li>
+                  <li className="nav-item">
+                    <NavLink className="nav-link" to="/admin-plans">Plans</NavLink>
+                  </li>
+                  <li className="nav-item">
+                    <NavLink className="nav-link" to="/admin-project">Project</NavLink>
+                  </li>
+
                   <li className="nav-item">
                     <NavLink className="nav-link" to="/admin-bids">Bids</NavLink>
                   </li>
                   <li className="nav-item">
                     <NavLink className="nav-link" to="/admin-profile">Profile</NavLink>
                   </li>
-                  <li className="nav-item">
-                    <NavLink className="nav-link" to="/admin-plans">Plans</NavLink>
-                  </li>
+
                   <li className="nav-item">
                     <button className="nav-link" onClick={logout}>Logout</button>
                   </li>
@@ -344,9 +346,7 @@ const ClientMenu = () => {
                   <li className="nav-item">
                     <NavLink className="nav-link" to="/client-manage-projects">Manage</NavLink>
                   </li>
-                  <li className="nav-item">
-                    <NavLink className="nav-link" to="/client-review-bids">Bids</NavLink>
-                  </li>
+                  
                   <li className="nav-item">
                     <NavLink className="nav-link" to="/client-profile">Profile</NavLink>
                   </li>

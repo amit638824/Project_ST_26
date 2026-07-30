@@ -52,7 +52,7 @@ const UserBids = () => {
                           <td>₹{item?.amount}</td>
                           <td><span
                             // className="status-pending"
-                            className={item?.status == 'accepted' ? 'status-ok' : 'status-pending'}
+                            className={item?.status == 'accept' ? 'status-ok' : 'status-pending'}
                           >{item?.status}</span></td>
                         </tr>)
                       })}
