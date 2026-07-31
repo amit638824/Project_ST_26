@@ -7,7 +7,6 @@ import Swal from "sweetalert2";
 import { Link, useNavigate } from "react-router-dom";
 
 const schema = yup.object().shape({
-  type: yup.string().oneOf(["client", "user", "admin"]).required("Please select login type"),
   email: yup.string().required("Email is required").email("Enter a valid email"),
   password: yup.string().required("Password is required").min(8, "Password must be at least 8 characters").max(18),
   remember: yup.boolean(),
@@ -25,7 +24,7 @@ const Login = () => {
 
   const handleLogin = async (data) => {
     const res = await axios.post('http://localhost:9000/login', data);
-    if (res?.data?.success == true) { 
+    if (res?.data?.success == true) {
       localStorage.setItem("info", JSON.stringify(res?.data?.result))
       if (res?.data?.result?.type == 'admin') {
         navigate('/admin-dashboard')
@@ -60,13 +59,7 @@ const Login = () => {
 
         <form onSubmit={handleSubmit(handleLogin)}>
           <div className="mb-3">
-            <label className="form-label fw-semibold">Login As</label>
-            <select {...register("type")} className="form-select">
-              <option value="client">Client</option>
-              <option value="user">Freelancer</option>
-              <option value="admin">Admin</option>
-            </select>
-            {errors.type && <p className="text-danger">{errors.type.message}</p>}
+           
           </div>
 
           <div className="row">
