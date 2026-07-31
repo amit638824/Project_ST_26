@@ -26,7 +26,7 @@ const CategorySection = () => {
         </div>
 
         <div className="row g-3 g-lg-4">
-          <div className="col-lg-4 col-md-6">
+          <div data-aos="flip-left" className="col-lg-4 col-md-6">
             <div className="category-card cat-teal">
               <div className="cat-icon">
                 <HiOutlineDesktopComputer />
@@ -36,7 +36,7 @@ const CategorySection = () => {
           </div>
 
           <div className="col-lg-4 col-md-6">
-            <div className="category-card cat-pink">
+            <div data-aos="flip-right" className="category-card cat-pink">
               <div className="cat-icon">
                 <HiOutlineColorSwatch />
               </div>
@@ -45,7 +45,7 @@ const CategorySection = () => {
           </div>
 
           <div className="col-lg-4 col-md-6">
-            <div className="category-card cat-green">
+            <div data-aos="zoom-in" className="category-card cat-green">
               <div className="cat-icon">
                 <HiOutlineCode />
               </div>
@@ -54,7 +54,7 @@ const CategorySection = () => {
           </div>
 
           <div className="col-lg-4 col-md-6">
-            <div className="category-card cat-yellow">
+            <div data-aos="zoom-out-down" className="category-card cat-yellow">
               <div className="cat-icon">
                 <HiOutlineBriefcase />
               </div>
@@ -63,7 +63,7 @@ const CategorySection = () => {
           </div>
 
           <div className="col-lg-4 col-md-6">
-            <div className="category-card cat-purple">
+            <div data-aos="zoom-out-up" className="category-card cat-purple">
               <div className="cat-icon">
                 <HiOutlineDatabase />
               </div>
@@ -72,7 +72,7 @@ const CategorySection = () => {
           </div>
 
           <div className="col-lg-4 col-md-6">
-            <div className="category-card cat-magenta">
+            <div data-aos="flip-up" className="category-card cat-magenta">
               <div className="cat-icon">
                 <HiOutlineSpeakerphone />
               </div>
@@ -81,7 +81,7 @@ const CategorySection = () => {
           </div>
 
           <div className="col-lg-4 col-md-6">
-            <div className="category-card cat-blue">
+            <div data-aos="fade-left" className="category-card cat-blue">
               <div className="cat-icon">
                 <HiOutlineHand />
               </div>
@@ -90,7 +90,7 @@ const CategorySection = () => {
           </div>
 
           <div className="col-lg-4 col-md-6">
-            <div className="category-card cat-orange">
+            <div data-aos="fade-up-left" className="category-card cat-orange">
               <div className="cat-icon">
                 <HiOutlineDeviceMobile />
               </div>
@@ -99,7 +99,7 @@ const CategorySection = () => {
           </div>
 
           <div className="col-lg-4 col-md-6">
-            <div className="category-card cat-sky">
+            <div data-aos="fade-down-left" className="category-card cat-sky">
               <div className="cat-icon">
                 <HiOutlinePhotograph />
               </div>

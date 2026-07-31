@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { FaArrowRight } from 'react-icons/fa'
-
+import Typewriter from 'typewriter-effect';
 const HeroSection = () => {
   return (
     <section className="hero-section">
@@ -17,7 +17,16 @@ const HeroSection = () => {
               <h1 className="hero-title">
                 Where Talent <span>Meets Opportunity</span>
                 <br />
-                with Zentora
+               <div className='d-flex gap-3'>
+                 With   
+                <Typewriter
+                  options={{
+                    strings: ['Zentora'],
+                    autoStart: true,
+                    loop: true,
+                  }}
+                />
+               </div>
               </h1>
 
               <p className="hero-desc">

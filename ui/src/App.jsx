@@ -29,10 +29,19 @@ import UserProjects from './components/user/UserProjects';
 import UserBids from './components/user/UserBids';
 import UserProfile from './components/user/UserProfile';
 import UserPlans from './components/user/UserPlans';
-
+import 'aos/dist/aos.css';
+import AOS from 'aos';
 const App = () => {
   const location = useLocation();
   const [user, setUser] = useState(null);
+  useEffect(() => {
+    AOS.init({
+      offset: 200,
+      duration: 600,
+      easing: 'ease-in-sine'
+    })
+  }, [])
+
   useEffect(() => {
     const info = JSON.parse(localStorage.getItem('info'))
     setUser(info)
