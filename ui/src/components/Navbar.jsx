@@ -26,7 +26,7 @@ const Navbar = () => {
 
 const CommonMenu = () => {
   return (<>
-    <header className="zentora-nav">
+    <header className="zentora-nav sticky-top">
       {/* Top bar */}
       <div className="header-top-bar">
         <div className="container">
